@@ -277,7 +277,6 @@
   .pv-cn-analysis p{ margin:0 0 8px; color:#34465a; font-size:16px; line-height:1.75; }
   .pv-cn-analysis ul{ margin:0; padding-left:22px; color:#34465a; font-size:16px; line-height:1.75; }
   .pv-cn-analysis .em-red{ color:#e53935; font-weight:700; }
-  .pv-cn-mix-chart{ width:min(64%, 900px); height:440px; margin:16px 0 20px auto; }
   .pv-cn-overview-card{ margin-top:24px; }
   .pv-cn-company-card{ margin-top:24px; }
   .pv-cn-share-card{ margin-top:24px; }
@@ -904,7 +903,6 @@
     .mat-special-grid{ grid-template-columns:1fr; }
     .cathode-kpi-grid{ grid-template-columns:1fr; }
     .mat-special-chart.wide{ grid-column:auto; }
-    .pv-cn-mix-chart{ width:100%; height:360px !important; margin:14px 0 18px; }
 
     /* 卡片缩小内边距 */
     .card{ padding:14px 14px 10px; border-radius:11px; }
@@ -1005,7 +1003,6 @@
       <h2>中国EV——26H1呈现一超多强与新势力分化格局</h2>
       <p><strong>销量&amp;渗透率：</strong>乘用车市场，中国内地总销量<span class="em-red">828.8万辆</span>，同比<span class="em-red">-24.3%</span>；其中新能源汽车销量<span class="em-red">459.4万辆</span>，同比<span class="em-red">-16.8%</span>，电动化渗透率为<span class="em-red">55.4%</span>。</p>
       <p><strong>数据分析：</strong>H1车市销量同比下滑，核心源于前期需求透支与市场观望情绪持续蔓延。此前2025年Q4购置税政策红利提前释放大量购车需求，导致本季度刚需存量不足。整体来看，燃油车是拖累大盘走弱的核心因素，而新能源车型降幅显著收窄、商用车新能源逆势高增，行业结构性升级、电动化转型的长期趋势依旧明确。</p>
-      <div id="pv-cn-powertrain-mix" class="pv-cn-mix-chart" aria-label="24A至26H1中国新能源汽车内销纯电与插电情况"></div>
       <p>26H1国内新能源市场头部集聚效应大幅增强，前10名车企市占率达<span class="em-red">87%</span>。</p>
       <ul>
         <li>头部阵营：比亚迪依旧稳居行业绝对龙头位置，26H1销量<span class="em-red">180.9万辆</span>，同比下滑<span class="em-red">16%</span>。</li>
@@ -2504,13 +2501,6 @@ PV_DATA.chinaMarket = {
   sales26H1:[181,98,75,41,49,47,36,47,17,19,19,14,50,26,18],
   yoy:[-16,14,23,-12,28,31,61,32,-16,17,-5,-10,23,69,24],
   shares:[24.5,13.3,10.2,5.6,6.7,6.4,4.8,6.3,2.3,2.5,2.6,2.0,6.7,3.6,2.5],
-  powertrainMix:{
-    cats:['2024','2025','2026H1'],
-    pureShare:[60.0,64.6,66.1],
-    plugShare:[40.1,35.4,24.6],
-    pureYoy:[-13.7,41.0,-6.6],
-    plugYoy:[84.6,15.6,-27.6]
-  },
   salesOverview:{
     cats:['25A','26H1'],
     sales:[1300.5,459.4],
@@ -6246,30 +6236,6 @@ function renderPVGlobal(){
 
 function renderPVChina(){
   const d = PV_DATA.chinaMarket;
-  const mixEl = document.getElementById('pv-cn-powertrain-mix');
-  if(mixEl){
-    const m = d.powertrainMix;
-    const c = echarts.init(mixEl);
-    c.setOption({
-      aria:{enabled:true,description:'24A至26H1中国新能源汽车内销纯电与插电占比及销量同比。'},
-      title:{text:'24A-26H1中国新能源汽车内销纯电/插电情况',left:'center',top:0,textStyle:{fontSize:17,fontWeight:'700',color:'#000'}},
-      legend:{top:28,left:'center',data:['纯电占比','插电占比','纯电销量同比','插电销量同比'],itemGap:22,textStyle:{fontSize:15,color:'#000'}},
-      tooltip:{trigger:'axis',axisPointer:{type:'shadow'},formatter:params=>'<b>'+params[0].axisValue+'</b><br>'+params.map(p=>p.marker+p.seriesName+'：'+Number(p.value).toFixed(1)+'%').join('<br>')},
-      grid:{left:44,right:56,top:78,bottom:48,containLabel:true},
-      xAxis:{type:'category',data:m.cats,axisLabel:{fontSize:16,color:'#000'},axisLine:{lineStyle:{color:'#cbd4f8'}},axisTick:{show:false}},
-      yAxis:[
-        {type:'value',name:'占比',min:0,max:100,interval:20,axisLabel:{fontSize:14,color:'#000',formatter:v=>v+'%'},nameTextStyle:{fontSize:14,color:'#000'},axisLine:{show:false},axisTick:{show:false},splitLine:{show:false}},
-        {type:'value',name:'同比',min:-40,max:100,interval:20,axisLabel:{fontSize:14,color:'#000',formatter:v=>v+'%'},nameTextStyle:{fontSize:14,color:'#000'},axisLine:{show:false},axisTick:{show:false},splitLine:{show:false}}
-      ],
-      series:[
-        {name:'纯电占比',type:'bar',stack:'share',barMaxWidth:86,data:m.pureShare,itemStyle:{color:'#00c974'},label:{show:true,position:'inside',fontSize:15,color:'#fff',formatter:p=>Number(p.value).toFixed(1)+'%'}},
-        {name:'插电占比',type:'bar',stack:'share',barMaxWidth:86,data:m.plugShare,itemStyle:{color:'#0082E1'},label:{show:true,position:'inside',fontSize:15,color:'#fff',formatter:p=>Number(p.value).toFixed(1)+'%'}},
-        {name:'纯电销量同比',type:'line',yAxisIndex:1,data:m.pureYoy,symbol:'diamond',symbolSize:8,lineStyle:{width:2.6,color:'#171b67'},itemStyle:{color:'#fff',borderColor:'#171b67',borderWidth:2},label:{show:true,position:'top',distance:8,fontSize:15,color:'#000',formatter:p=>Number(p.value).toFixed(1)+'%'}},
-        {name:'插电销量同比',type:'line',yAxisIndex:1,data:m.plugYoy,symbol:'diamond',symbolSize:8,lineStyle:{width:2.6,color:'#aebbc0'},itemStyle:{color:'#fff',borderColor:'#aebbc0',borderWidth:2},label:{show:true,position:'top',distance:8,fontSize:15,color:'#000',formatter:p=>Number(p.value).toFixed(1)+'%'}}
-      ]
-    });
-    pvCharts.chinaPowertrainMix = c;
-  }
   const salesOverviewEl = document.getElementById('pv-cn-sales-overview');
   if(salesOverviewEl){
     const o = d.salesOverview;
