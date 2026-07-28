@@ -278,6 +278,7 @@
   .pv-cn-analysis ul{ margin:0; padding-left:22px; color:#34465a; font-size:16px; line-height:1.75; }
   .pv-cn-analysis .em-red{ color:#e53935; font-weight:700; }
   .pv-cn-mix-chart{ width:min(64%, 900px); height:440px; margin:16px 0 20px auto; }
+  .pv-cn-overview-card{ margin-top:24px; }
   .pv-cn-company-card{ margin-top:24px; }
   .pv-cn-share-card{ margin-top:24px; }
   .pv-cn-export-analysis ul{ margin:0; padding-left:22px; color:#34465a; font-size:16px; line-height:1.95; letter-spacing:.8px; text-align:justify; text-justify:inter-ideograph; }
@@ -1014,6 +1015,7 @@
         <li>理想26H1销量<span class="em-red">19.3万辆</span>，同比下降<span class="em-red">5%</span>，主要受增程赛道红利消退及新品迭代节奏滞后拖累。</li>
       </ul>
     </section>
+    <section class="card pv-cn-overview-card"><div class="head"><h2>中国新能源PV销量、同比及电动化渗透率</h2><p class="sub">单位：万辆、%</p></div><div id="pv-cn-sales-overview" class="chart" style="height:460px"></div><p class="heavy-source">数据来源：中汽协、璞泰来整理</p></section>
     <section class="card pv-cn-company-card"><div class="head"><h2>中国25A及26H1电车企业销量与同比</h2><p class="sub">单位：万辆、%</p></div><div id="pv-cn-company" class="chart" style="height:520px"></div><p class="heavy-source">数据来源：中汽协、璞泰来整理</p></section>
     <section class="card pv-cn-share-card"><div class="head"><h2>26H1中国新能源车企格局</h2><p class="sub">单位：%</p></div><div id="pv-cn-share" class="chart" style="height:500px"></div><p class="heavy-source">数据来源：中汽协、璞泰来整理</p></section>
     <div class="subsec-title">2.2 出口情况</div>
@@ -2508,6 +2510,12 @@ PV_DATA.chinaMarket = {
     plugShare:[40.1,35.4,24.6],
     pureYoy:[-13.7,41.0,-6.6],
     plugYoy:[84.6,15.6,-27.6]
+  },
+  salesOverview:{
+    cats:['25A','26H1'],
+    sales:[1300.5,459.4],
+    yoy:[17.7,-16.8],
+    penetration:[54,55]
   }
 };
 
@@ -6261,6 +6269,28 @@ function renderPVChina(){
       ]
     });
     pvCharts.chinaPowertrainMix = c;
+  }
+  const salesOverviewEl = document.getElementById('pv-cn-sales-overview');
+  if(salesOverviewEl){
+    const o = d.salesOverview;
+    const c = echarts.init(salesOverviewEl);
+    c.setOption({
+      aria:{enabled:true,description:'25A与26H1中国新能源乘用车销量、同比及电动化渗透率。'},
+      legend:{top:8,left:'center',data:['新能源PV销量','同比','电动化渗透率'],itemGap:28,textStyle:{fontSize:16,color:'#000'}},
+      tooltip:{trigger:'axis',axisPointer:{type:'shadow'},formatter:params=>'<b>'+params[0].axisValue+'</b><br>'+params.map(p=>p.marker+p.seriesName+'：'+Number(p.value).toFixed(1)+(p.seriesName==='新能源PV销量'?'万辆':'%')).join('<br>')},
+      grid:{left:28,right:34,top:82,bottom:48,containLabel:true},
+      xAxis:{type:'category',data:o.cats,axisLabel:{fontSize:16,color:'#000'},axisLine:{show:false},axisTick:{show:false}},
+      yAxis:[
+        {type:'value',name:'销量（万辆）',min:0,max:1500,interval:300,axisLabel:{fontSize:16,color:'#000'},nameTextStyle:{fontSize:16,color:'#000'},axisLine:{show:false},axisTick:{show:false},splitLine:{show:false}},
+        {type:'value',name:'同比/渗透率',min:-20,max:60,interval:20,axisLabel:{fontSize:16,color:'#000',formatter:v=>v+'%'},nameTextStyle:{fontSize:16,color:'#000'},axisLine:{show:false},axisTick:{show:false},splitLine:{show:false}}
+      ],
+      series:[
+        {name:'新能源PV销量',type:'bar',barMaxWidth:90,data:o.sales,itemStyle:{color:'#00c974'},label:{show:true,position:'top',distance:7,fontSize:16,color:'#000',formatter:p=>Number(p.value).toFixed(1)}},
+        {name:'同比',type:'line',yAxisIndex:1,data:o.yoy,symbol:'diamond',symbolSize:9,lineStyle:{width:2.8,color:'#e53935'},itemStyle:{color:'#fff',borderColor:'#e53935',borderWidth:2},label:{show:true,position:'top',distance:11,fontSize:16,formatter:p=>(Number(p.value)<0?'{down|':'{up|')+Number(p.value).toFixed(1)+'%}',rich:{up:{color:'#e53935',fontSize:16},down:{color:'#00a86b',fontSize:16}}}},
+        {name:'电动化渗透率',type:'line',yAxisIndex:1,data:o.penetration,symbol:'circle',symbolSize:9,lineStyle:{width:2.8,color:'#1d5fb0'},itemStyle:{color:'#fff',borderColor:'#1d5fb0',borderWidth:2},label:{show:true,position:'top',distance:11,fontSize:16,color:'#1d5fb0',formatter:p=>Number(p.value).toFixed(1)+'%'}}
+      ]
+    });
+    pvCharts.chinaSalesOverview = c;
   }
   const pieEl = document.getElementById('pv-cn-share');
   if(pieEl){
