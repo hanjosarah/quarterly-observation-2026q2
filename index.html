@@ -6298,7 +6298,7 @@ function renderPVChinaExport(){
       series:[{
         name:'26H1乘用车出口结构',type:'pie',radius:['32%','52%'],center:['50%','55%'],data:exportMix,
         minShowLabelAngle:0,avoidLabelOverlap:true,
-        label:{show:true,position:'outside',alignTo:'edge',edgeDistance:12,bleedMargin:4,formatter:p=>p.name+'\n'+Number(p.value).toFixed(1)+'万辆\n占比 '+Number(p.percent).toFixed(1)+'%',fontSize:15,color:'#000',lineHeight:20},
+        label:{show:true,position:'outside',alignTo:'edge',edgeDistance:12,bleedMargin:4,formatter:p=>Number(p.value).toFixed(1)+'万辆\n占比 '+Number(p.percent).toFixed(1)+'%',fontSize:15,color:'#000',lineHeight:20},
         labelLine:{show:true,length:10,length2:6,lineStyle:{color:'#9aa8ba',width:1}},
         labelLayout:{hideOverlap:false},itemStyle:{borderColor:'#fff',borderWidth:1.5}
       }]
