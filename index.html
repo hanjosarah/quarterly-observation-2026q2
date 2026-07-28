@@ -163,6 +163,8 @@
     font-size:16px;
   }
   .chart{ width:100%; height:460px; }
+  .card, .mat-card, .mat-special-chart, .price-card, .price-sub, .chain-seg{ min-width:0; max-width:100%; }
+  .card .head h2, .price-title, .price-sub-title{ min-width:0; overflow-wrap:anywhere; }
 
   /* ===== 中国电动重卡市场 ===== */
   .heavy-analysis{
@@ -905,6 +907,9 @@
     .analysis-list.lfp-analysis{ grid-template-columns:1fr; }
     .mat-special-grid{ grid-template-columns:1fr; }
     .cathode-kpi-grid{ grid-template-columns:1fr; }
+    .outlook-kpis{ grid-template-columns:1fr; }
+    .outlook-kpi-value{ font-size:20px; overflow-wrap:anywhere; }
+    .outlook-kpi-yoy{ display:block; margin:4px 0 0; }
     .mat-special-chart.wide{ grid-column:auto; }
 
     /* 卡片缩小内边距 */
@@ -922,6 +927,7 @@
     .price-chart{ grid-template-columns:1fr !important; gap:12px; }
     .price-sub{ padding:9px 10px 4px; }
     .price-sub-title{ font-size:16px; }
+    .price-head, .price-sub-head{ flex-wrap:wrap; gap:3px 8px; }
 
     /* tab/chip 缩小 */
     .price-type-tab, .news-sys-tab, .mat-sys-tab{ font-size:16px; padding:5px 14px; }
@@ -933,6 +939,10 @@
     .perf-table{ font-size:16px; }
     .perf-table thead th, .perf-table tbody td{ padding:5px 5px; }
     .perf-desc{ font-size:16px; line-height:1.7; }
+    .perf-table-wrap, .lfp-table-wrap{
+      max-width:100%; overflow-x:auto; overscroll-behavior-inline:contain;
+      -webkit-overflow-scrolling:touch;
+    }
 
     /* 经营动态列表项：多列改纵向堆叠 */
     .news-item{ flex-direction:column; align-items:flex-start; gap:5px; padding:10px 12px; }
@@ -944,6 +954,7 @@
     /* 产业链卡片：双列改单列 */
     .chain-segs{ grid-template-columns:1fr; }
     .chain-tab{ font-size:16px; padding:5px 14px; }
+    .chain-comp{ max-width:100%; overflow-wrap:anywhere; }
 
     /* tag 切换排：横向可滚动，避免换行过多 */
     .news-tabs, .price-type-tabs, .news-sys-tabs, .price-bar, .mat-bar, .news-cat-tabs{
