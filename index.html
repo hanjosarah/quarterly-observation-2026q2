@@ -915,7 +915,7 @@
     .card .head{ flex-wrap:wrap; gap:4px; }
 
     /* 所有图表：强制统一高度，覆盖内联 style（!important）*/
-    .chart{ height:300px !important; }
+    .chart{ height:320px !important; }
     .price-sub-chart{ height:240px !important; }
 
     /* 价格小图：双列强制改单列 */
@@ -957,7 +957,7 @@
   @media (max-width:380px){
     header.app h1{ font-size:16px; }
     .card h2{ font-size:16px; }
-    .chart{ height:260px !important; }
+    .chart{ height:300px !important; }
     .price-sub-chart{ height:220px !important; }
     .perf-table{ font-size:16px; }
   }
@@ -1469,8 +1469,10 @@ function applyChartFontFloor(node, seen){
 // 图表坐标轴规范：仅轴文字使用纯黑色 16px；横纵轴线与刻度线全部隐藏。
 function applyGlobalAxisStyle(option){
   if(!option || typeof option !== 'object') return;
+  const compact = typeof window !== 'undefined' && window.innerWidth <= 768;
+  const axisFontSize = compact ? 12 : PAGE_MIN_FONT_PX;
   option.textStyle = Object.assign({}, option.textStyle || {}, {
-    fontSize:PAGE_MIN_FONT_PX,
+    fontSize:axisFontSize,
     fontFamily:'Microsoft YaHei'
   });
   applyChartFontFloor(option);
@@ -1482,11 +1484,16 @@ function applyGlobalAxisStyle(option){
       axis.axisLine = Object.assign({}, axis.axisLine || {}, {show:false});
       axis.axisTick = Object.assign({}, axis.axisTick || {}, {show:false});
       axis.axisLabel = Object.assign({}, axis.axisLabel || {}, {
-        color:'#000000', fontSize:16, fontFamily:'Microsoft YaHei'
+        color:'#000000', fontSize:axisFontSize, fontFamily:'Microsoft YaHei'
       });
       axis.nameTextStyle = Object.assign({}, axis.nameTextStyle || {}, {
-        color:'#000000', fontSize:16, fontFamily:'Microsoft YaHei'
+        color:'#000000', fontSize:axisFontSize, fontFamily:'Microsoft YaHei'
       });
+      if(compact && axisKey === 'xAxis' && Array.isArray(axis.data) && axis.data.length > 6){
+        axis.axisLabel.rotate = axis.axisLabel.rotate || 38;
+        axis.axisLabel.interval = axis.axisLabel.interval === 0 ? 1 : (axis.axisLabel.interval ?? 1);
+        axis.axisLabel.margin = Math.max(Number(axis.axisLabel.margin) || 8, 10);
+      }
       // 坐标轴名称统一向绘图区内部延伸，避免首尾文字被容器边缘裁切。
       const nameLocation = axis.nameLocation || 'end';
       if(nameLocation === 'middle' || nameLocation === 'center'){
@@ -1504,6 +1511,23 @@ function applyGlobalAxisStyle(option){
     if(!option.grid) option.grid = {containLabel:true};
     else if(Array.isArray(option.grid)) option.grid.forEach(g => { if(g) g.containLabel = true; });
     else option.grid.containLabel = true;
+  }
+  if(compact){
+    const legends = option.legend ? (Array.isArray(option.legend) ? option.legend : [option.legend]) : [];
+    legends.forEach(legend => {
+      if(!legend || typeof legend !== 'object') return;
+      legend.type = legend.type || 'scroll';
+      legend.itemWidth = Math.min(Number(legend.itemWidth) || 25, 14);
+      legend.itemHeight = Math.min(Number(legend.itemHeight) || 14, 10);
+      legend.itemGap = Math.min(Number(legend.itemGap) || 10, 10);
+      legend.textStyle = Object.assign({}, legend.textStyle || {}, {fontSize:12,fontFamily:'Microsoft YaHei'});
+    });
+    const grids = option.grid ? (Array.isArray(option.grid) ? option.grid : [option.grid]) : [];
+    grids.forEach(grid => {
+      if(!grid || typeof grid !== 'object') return;
+      grid.top = Math.max(Number(grid.top) || 0, 72);
+      grid.bottom = Math.max(Number(grid.bottom) || 0, 68);
+    });
   }
 }
 echarts.registerPreprocessor(applyGlobalAxisStyle);
