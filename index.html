@@ -268,6 +268,11 @@
     grid-template-columns:minmax(0, 1fr) minmax(0, 2fr);
     gap:24px;
   }
+  .pv-cn-export-kpis{ display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:10px; margin:0 6px 10px; }
+  .pv-cn-export-kpi{ display:grid; grid-template-columns:auto minmax(0, 1fr); grid-template-rows:auto auto; align-items:center; column-gap:8px; min-width:0; padding:9px 8px; border:1px solid #e2e8f0; border-radius:9px; background:#f8fafc; color:#26384c; font-size:15px; }
+  .pv-cn-export-kpi .dot{ grid-row:1 / 3; width:10px; height:10px; border-radius:3px; }
+  .pv-cn-export-kpi strong{ color:#102a56; font-size:16px; }
+  .pv-cn-export-kpi .share{ color:#5f7186; }
   .pv-global-analysis{ margin-bottom:24px; }
   .pv-global-summary{ margin:0; color:#34465a; font-size:16px; line-height:1.75; }
   .pv-global-analysis ul,.pv-emerging-analysis ul{ margin:0; padding-left:22px; color:#34465a; font-size:16px; line-height:1.95; letter-spacing:.8px; text-align:justify; text-justify:inter-ideograph; }
@@ -1024,7 +1029,7 @@
       </ul>
     </section>
     <div class="row pv-cn-export-row">
-      <section class="card"><div class="head"><h2>26H1中国乘用车出口情况</h2><p class="sub">单位：万辆、%</p></div><div id="pv-cn-export-overview" class="chart" style="height:500px"></div><p class="heavy-source">数据来源：中汽协、璞泰来整理</p></section>
+      <section class="card"><div class="head"><h2>26H1中国乘用车出口情况</h2><p class="sub">单位：万辆、%</p></div><div id="pv-cn-export-overview" class="chart" style="height:410px"></div><div class="pv-cn-export-kpis" aria-label="出口结构数据"><div class="pv-cn-export-kpi" aria-label="新能源乘用车230.2万辆，占比51.9%"><span class="dot" style="background:#0082E1"></span><strong>230.2万辆</strong><span class="share">占比51.9%</span></div><div class="pv-cn-export-kpi" aria-label="传统燃油车213.0万辆，占比48.1%"><span class="dot" style="background:#c7cfd5"></span><strong>213.0万辆</strong><span class="share">占比48.1%</span></div></div><p class="heavy-source">数据来源：中汽协、璞泰来整理</p></section>
       <section class="card"><div class="head"><h2>26H1新能源车企出口TOP10</h2><p class="sub">单位：万辆、%</p></div><div id="pv-cn-export-top" class="chart" style="height:500px"></div><p class="heavy-source">数据来源：中汽协、璞泰来整理</p></section>
     </div>
     <div class="sec-title">三、欧洲乘用车市场</div>
@@ -6326,10 +6331,10 @@ function renderPVChinaExport(){
       tooltip:{trigger:'item',formatter:p=>p.marker+p.name+'：'+Number(p.value).toFixed(1)+'万辆（'+Math.round(Number(p.percent))+'%）'},
       legend:{top:12,left:'center',data:['新能源乘用车','传统燃油车'],itemGap:28,textStyle:{fontSize:16,color:'#000'}},
       series:[{
-        name:'26H1乘用车出口结构',type:'pie',radius:['32%','52%'],center:['50%','55%'],data:exportMix,
+        name:'26H1乘用车出口结构',type:'pie',radius:['34%','62%'],center:['50%','57%'],data:exportMix,
         minShowLabelAngle:0,avoidLabelOverlap:true,
-        label:{show:true,position:'outside',alignTo:'edge',edgeDistance:12,bleedMargin:4,formatter:p=>Number(p.value).toFixed(1)+'万辆\n占比 '+Number(p.percent).toFixed(1)+'%',fontSize:15,color:'#000',lineHeight:20},
-        labelLine:{show:true,length:10,length2:6,lineStyle:{color:'#9aa8ba',width:1}},
+        label:{show:false},
+        labelLine:{show:false},
         labelLayout:{hideOverlap:false},itemStyle:{borderColor:'#fff',borderWidth:1.5}
       }]
     });
