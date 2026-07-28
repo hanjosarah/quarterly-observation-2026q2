@@ -268,11 +268,6 @@
     grid-template-columns:minmax(0, 1fr) minmax(0, 2fr);
     gap:24px;
   }
-  .pv-cn-export-kpis{ display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:10px; margin:0 6px 10px; }
-  .pv-cn-export-kpi{ display:grid; grid-template-columns:auto minmax(0, 1fr); grid-template-rows:auto auto; align-items:center; column-gap:8px; min-width:0; padding:9px 8px; border:1px solid #e2e8f0; border-radius:9px; background:#f8fafc; color:#26384c; font-size:15px; }
-  .pv-cn-export-kpi .dot{ grid-row:1 / 3; width:10px; height:10px; border-radius:3px; }
-  .pv-cn-export-kpi strong{ color:#102a56; font-size:16px; }
-  .pv-cn-export-kpi .share{ color:#5f7186; }
   .pv-global-analysis{ margin-bottom:24px; }
   .pv-global-summary{ margin:0; color:#34465a; font-size:16px; line-height:1.75; }
   .pv-global-analysis ul,.pv-emerging-analysis ul{ margin:0; padding-left:22px; color:#34465a; font-size:16px; line-height:1.95; letter-spacing:.8px; text-align:justify; text-justify:inter-ideograph; }
@@ -283,11 +278,13 @@
   .pv-cn-analysis ul{ margin:0; padding-left:22px; color:#34465a; font-size:16px; line-height:1.75; }
   .pv-cn-analysis .em-red{ color:#e53935; font-weight:700; }
   .pv-cn-overview-card{ width:calc(50% - 12px); box-sizing:border-box; margin:18px 0 20px; padding:14px 16px 10px; border:1px solid #dce6ef; border-radius:11px; background:#fff; }
-  .pv-cn-company-card{ margin-top:24px; }
-  .pv-cn-share-card{ margin-top:24px; }
+  .pv-cn-competition-chart{ margin-top:24px; padding-top:22px; border-top:1px solid #dce6ef; }
   .pv-cn-export-analysis ul{ margin:0; padding-left:22px; color:#34465a; font-size:16px; line-height:1.95; letter-spacing:.8px; text-align:justify; text-justify:inter-ideograph; }
   .pv-cn-export-analysis li{ padding-left:3px; }
   .pv-cn-export-analysis .em-red{ color:#e53935; font-weight:700; }
+  .pv-emerging-top-analysis p{ margin:0; color:#34465a; font-size:16px; line-height:1.9; letter-spacing:.5px; text-align:justify; text-justify:inter-ideograph; }
+  .pv-emerging-top-analysis .em-red{ color:#e53935; font-weight:700; }
+  .pv-emerging-top-card{ margin-top:24px; }
   .pv-eu-top-row{ grid-template-columns:minmax(0, 2fr) minmax(0, 3fr); gap:28px; }
   .pv-eu-analysis h2{ margin-bottom:12px; }
   .pv-eu-analysis p{ margin:0 0 10px; color:#34465a; font-size:16px; line-height:1.75; }
@@ -309,6 +306,7 @@
   .cv-cn-overview-analysis ul{ margin:0; padding-left:22px; color:#34465a; font-size:16px; line-height:1.95; letter-spacing:.8px; text-align:justify; text-justify:inter-ideograph; }
   .cv-cn-overview-analysis li{ padding-left:3px; }
   .cv-cn-overview-analysis .em-red{ color:#e53935; font-weight:700; }
+  .cv-cn-overview-chart{ margin-top:20px; padding-top:20px; border-top:1px solid #dce6ef; }
   .pv-emerging-analysis h2{ margin-bottom:12px; }
   .pv-emerging-analysis p{ margin:0; color:#34465a; font-size:16px; line-height:1.85; }
   .pv-emerging-row{ grid-template-columns:repeat(2, minmax(0, 1fr)); gap:28px; }
@@ -1006,21 +1004,22 @@
     <div class="sec-title">二、中国乘用车市场</div>
     <div class="subsec-title">2.1 内销情况</div>
     <section class="card heavy-analysis pv-cn-analysis">
-      <h2>中国EV——26H1呈现一超多强与新势力分化格局</h2>
+      <h2>中国EV销量情况</h2>
       <p><strong>销量&amp;渗透率：</strong>乘用车市场，中国内地总销量<span class="em-red">828.8万辆</span>，同比<span class="em-red">-24.3%</span>；其中新能源汽车销量<span class="em-red">459.4万辆</span>，同比<span class="em-red">-16.8%</span>，电动化渗透率为<span class="em-red">55.4%</span>。</p>
       <p><strong>数据分析：</strong>H1车市销量同比下滑，核心源于前期需求透支与市场观望情绪持续蔓延。此前2025年Q4购置税政策红利提前释放大量购车需求，导致本季度刚需存量不足。整体来看，燃油车是拖累大盘走弱的核心因素，而新能源车型降幅显著收窄、商用车新能源逆势高增，行业结构性升级、电动化转型的长期趋势依旧明确。</p>
       <div class="pv-cn-overview-card"><div class="head"><h2>中国25及26H1新能源PV销量、同比及电动化渗透率</h2><p class="sub">单位：万辆、%</p></div><div id="pv-cn-sales-overview" class="chart" style="height:460px"></div><p class="heavy-source">数据来源：中汽协、璞泰来整理</p></div>
-      <p>26H1国内新能源市场头部集聚效应大幅增强，前10名车企市占率达<span class="em-red">87%</span>。</p>
-      <ul>
-        <li>头部阵营：比亚迪依旧稳居行业绝对龙头位置，26H1销量<span class="em-red">180.9万辆</span>，同比下滑<span class="em-red">16%</span>。</li>
-        <li>传统车企：奇瑞26H1销量<span class="em-red">47.1万辆</span>，同比增长<span class="em-red">31%</span>，出口业务是核心增长驱动力；广汽销量<span class="em-red">26.2万辆</span>，同比增长<span class="em-red">69%</span>；上汽、一汽同比均增长<span class="em-red">23%</span>，东风、北汽、吉利保持增长，长安、长城承压走弱。</li>
-        <li>新势力分化：零跑26H1销量<span class="em-red">35.6万辆</span>，同比增长<span class="em-red">61%</span>；特斯拉销量<span class="em-red">46.8万辆</span>，同比增长<span class="em-red">32%</span>。</li>
-        <li>小鹏26H1销量<span class="em-red">16.6万辆</span>，同比下滑<span class="em-red">16%</span>，增长动能阶段性走弱；小米销量<span class="em-red">18.5万辆</span>，同比增长<span class="em-red">17%</span>，依托品牌势能、产品竞争力与线下渠道快速起量。</li>
-        <li>理想26H1销量<span class="em-red">19.3万辆</span>，同比下降<span class="em-red">5%</span>，主要受增程赛道红利消退及新品迭代节奏滞后拖累。</li>
-      </ul>
     </section>
-    <section class="card pv-cn-company-card"><div class="head"><h2>中国25A及26H1电车企业销量与同比</h2><p class="sub">单位：万辆、%</p></div><div id="pv-cn-company" class="chart" style="height:520px"></div><p class="heavy-source">数据来源：中汽协、璞泰来整理</p></section>
-    <section class="card pv-cn-share-card"><div class="head"><h2>26H1中国新能源车企格局</h2><p class="sub">单位：%</p></div><div id="pv-cn-share" class="chart" style="height:500px"></div><p class="heavy-source">数据来源：中汽协、璞泰来整理</p></section>
+    <section class="card heavy-analysis pv-cn-analysis pv-cn-competition-analysis">
+      <h2>中国EV——竞争格局</h2>
+      <p>2026年上半年国内新能源市场头部集聚效应大幅增强。前10名车企市占率达<span class="em-red">87.4%</span>。</p>
+      <ul>
+        <li><strong>头部阵营：</strong>比亚迪依旧稳居行业绝对龙头位置，但2026上半年销量<span class="em-red">180.9万辆</span>，同比下滑<span class="em-red">15.70%</span>。</li>
+        <li><strong>传统车企：</strong>奇瑞增长势头最强，2026上半年销量<span class="em-red">47.1万辆</span>，同比大涨<span class="em-red">30.5%</span>，出口业务是核心增长驱动力；广汽增速领跑全行业，上半年销量<span class="em-red">26.2万辆</span>，同比暴涨<span class="em-red">69.2%</span>；上汽、一汽增速持平；东风、北汽、吉利保持稳步增长；长安、长城承压走弱。</li>
+        <li><strong>新势力分化：</strong>零跑上半年销量<span class="em-red">35.6万辆</span>，同比增速<span class="em-red">60.8%</span>；特斯拉外资龙头稳增，上半年销量<span class="em-red">46.8万辆</span>，同比<span class="em-red">32.1%</span>；小鹏同比下滑<span class="em-red">15.80%</span>，上半年销量<span class="em-red">16.6万辆</span>，此前依托智能驾驶与技术平权战略的增长动能阶段性走弱；小米上半年销量<span class="em-red">18.5万辆</span>，同比增长<span class="em-red">17.2%</span>，依托品牌势能、产品竞争力与线下渠道快速起量；理想为新势力中下滑代表，上半年销量<span class="em-red">19.3万辆</span>，同比下降<span class="em-red">5.10%</span>，核心受增程赛道红利消退、新品迭代节奏滞后拖累。</li>
+      </ul>
+      <div class="pv-cn-competition-chart"><div class="head"><h2>中国25A及26H1电车企业销量与同比</h2><p class="sub">单位：万辆、%</p></div><div id="pv-cn-company" class="chart" style="height:520px"></div><p class="heavy-source">数据来源：中汽协、璞泰来整理</p></div>
+      <div class="pv-cn-competition-chart"><div class="head"><h2>26H1中国新能源车企格局</h2><p class="sub">单位：%</p></div><div id="pv-cn-share" class="chart" style="height:500px"></div><p class="heavy-source">数据来源：中汽协、璞泰来整理</p></div>
+    </section>
     <div class="subsec-title">2.2 出口情况</div>
     <section class="card heavy-analysis pv-cn-export-analysis">
       <h2>中国EV——26H1出口爆发</h2>
@@ -1030,7 +1029,7 @@
       </ul>
     </section>
     <div class="row pv-cn-export-row">
-      <section class="card"><div class="head"><h2>26H1中国乘用车出口情况</h2><p class="sub">单位：万辆、%</p></div><div id="pv-cn-export-overview" class="chart" style="height:410px"></div><div class="pv-cn-export-kpis" aria-label="出口结构数据"><div class="pv-cn-export-kpi" aria-label="新能源乘用车230.2万辆，占比51.9%"><span class="dot" style="background:#0082E1"></span><strong>230.2万辆</strong><span class="share">占比51.9%</span></div><div class="pv-cn-export-kpi" aria-label="传统燃油车213.0万辆，占比48.1%"><span class="dot" style="background:#c7cfd5"></span><strong>213.0万辆</strong><span class="share">占比48.1%</span></div></div><p class="heavy-source">数据来源：中汽协、璞泰来整理</p></section>
+      <section class="card"><div class="head"><h2>26H1中国乘用车出口情况</h2><p class="sub">单位：万辆、%</p></div><div id="pv-cn-export-overview" class="chart" style="height:460px"></div><p class="heavy-source">数据来源：中汽协、璞泰来整理</p></section>
       <section class="card"><div class="head"><h2>26H1新能源车企出口TOP10</h2><p class="sub">单位：万辆、%</p></div><div id="pv-cn-export-top" class="chart" style="height:500px"></div><p class="heavy-source">数据来源：中汽协、璞泰来整理</p></section>
     </div>
     <div class="sec-title">三、欧洲乘用车市场</div>
@@ -1072,6 +1071,11 @@
       <section class="card"><div class="head"><h2>新兴市场新能源车销量情况</h2><p class="sub">单位：万辆、%</p></div><div id="pv-emerging-sales" class="chart" style="height:500px"></div><p class="heavy-source">数据来源：SNER，璞泰来整理</p></section>
       <section class="card"><div class="head"><h2>东盟六国电动化渗透率</h2><p class="sub">单位：%</p></div><div id="pv-emerging-penetration" class="chart" style="height:500px"></div><p class="heavy-source">数据来源：SNER，璞泰来整理</p></section>
     </div>
+    <section class="card heavy-analysis pv-emerging-top-analysis">
+      <h2>新兴市场EV——中国品牌占东南亚EV市场新增主导</h2>
+      <p><strong>新能源市场增量基本由中国新能源品牌主导贡献：</strong>整体乘用车大盘当中，中国品牌市占率尚处于较低水平，但在新能源细分赛道形成碾压优势，比亚迪、吉利、奇瑞等中国头部车企对东南亚出口规模领跑行业，实现高速增长。以泰国市场为例，燃油车市场依旧由丰田、本田、五十铃等日系品牌占据头部席位，基本盘稳固；新能源赛道格局已然重构，比亚迪跻身当地销量前列，中国品牌持续收割电动化转型带来的增量。日系车企短期难以撼动中国品牌在东南亚新能源市场建立的先发优势，形成“燃油存量日系把控、电动增量中国品牌抢占”的错位竞争态势。</p>
+    </section>
+    <section class="card pv-emerging-top-card"><div class="head"><h2>2025年1-10月中国车企出口东南亚TOP10</h2><p class="sub">单位：万辆、%</p></div><div id="pv-emerging-sea-top10" class="chart" style="height:540px"></div><p class="heavy-source">数据来源：AI全球供应链信息网</p></section>
   </section>
 
   <!-- 板块2：商用车市场（默认显示）-->
@@ -1084,6 +1088,7 @@
         <li><strong>26H1内销情况：</strong>商用车市场，中国内地总销量<strong>163.3万辆</strong>，同比<strong>+0.8%</strong>，其中新能源销量<strong>49.6万辆</strong>，同比<strong>+40.2%</strong>，电动化渗透率<strong>30.4%</strong>。</li>
         <li><strong>26H1出口量&amp;渗透率：</strong>商用车市场，中国出口量<strong>66.4万辆</strong>，同比<strong>+32.5%</strong>；其中新能源汽车销量<strong>5.4万辆</strong>，同比<strong>+9.9%</strong>，电动化占比为<strong>8.1%</strong>。</li>
       </ul>
+      <div class="cv-cn-overview-chart"><div class="head"><h2>25A及26H1新能源商用车内销、出口情况</h2><p class="sub">单位：万辆、%</p></div><div id="cv-cn-overview" class="chart" style="height:500px"></div></div>
       <p class="heavy-source">数据来源：中汽协</p>
     </section>
     <div class="subsec-title">1.2 重卡</div>
@@ -1647,8 +1652,105 @@ const PERF_H1={
   "金杨股份":{n:"0.46~0.54",ny:"240%~299%"}
 };
 
-// ===== 锂电&钠电产业链全景（来自 PPT 第7~9页，10环节/26子类/292家公司）=====
+// ===== 锂电产业链全景（10环节/26子类/307个企业条目；显示数量含无标题补充项）=====
 const CHAIN_DATA=[{"seg":"上游资源","color":"#1f9e5e","items":[{"cat":"锂","companies":[{"n":"赣锋锂业","code":"002460.SZ"},{"n":"天齐锂业","code":"002466.SZ"},{"n":"盛新锂能","code":"002240.SZ"},{"n":"盐湖股份","code":"000792.SZ"},{"n":"永兴材料","code":"002756.SZ"},{"n":"中矿资源","code":"002738.SZ"},{"n":"融捷股份","code":"002192.SZ"},{"n":"雅化集团","code":"002497.SZ"},{"n":"藏格矿业","code":"000408.SZ"},{"n":"西藏矿业","code":"000762.SZ"},{"n":"西藏城投","code":"600773.SH"},{"n":"西藏珠峰","code":"600338.SH"},{"n":"江特电机","code":"002176.SZ"},{"n":"川能动力","code":"000155.SZ"},{"n":"国城矿业","code":"000688.SZ"},{"n":"FMC","code":"NYSE：FMC"},{"n":"SQM","code":"NYSE：SQM"},{"n":"华友钴业","code":"603799.SH"}]},{"cat":"钴","companies":[{"n":"华友钴业","code":"603799.SH"},{"n":"寒锐钴业","code":"300618.SZ"},{"n":"洛阳钼业","code":"603993.SH"},{"n":"腾远钴业","code":"301219.SZ"},{"n":"紫金矿业","code":"601899.SH"},{"n":"锦源晟","code":"未上市"}]},{"cat":"镍","companies":[{"n":"华友钴业","code":"603799.SH"},{"n":"格林美","code":"002340.SZ"},{"n":"盛屯矿业","code":"600711.SH"},{"n":"力勤资源","code":"02245.HK"},{"n":"金川国际","code":"02362.HK"},{"n":"青山控股","code":"未上市"},{"n":"洛阳钼业","code":"603933.SH"},{"n":"中国中冶","code":"601618.SH"}]}]},{"seg":"正极材料&前驱体","color":"#154789","items":[{"cat":"三元前驱体","companies":[{"n":"中伟股份","code":"300919.SZ/2579.HK"},{"n":"湖南邦普","code":"CATL子公司"},{"n":"兰州金通","code":"未上市"},{"n":"格林美","code":"002340.SZ"},{"n":"容百科技","code":"688005.SH"},{"n":"天津巴莫","code":"华友子公司"},{"n":"锦源晟","code":"未上市"},{"n":"金晟新能","code":"港交所再递表"}]},{"cat":"三元正极","companies":[{"n":"南通瑞翔","code":"未上市"},{"n":"天津巴莫","code":"华友子公司"},{"n":"容百科技","code":"688005.SH"},{"n":"厦钨新能","code":"688778.SH"},{"n":"杉杉股份","code":"600884.SH"},{"n":"五矿新能","code":"688779.SH"},{"n":"当升科技","code":"300073.SZ"},{"n":"天力锂能","code":"301152.SZ"},{"n":"陕西红马","code":"未上市"},{"n":"宜宾锂宝","code":"天原股份参股公司"},{"n":"ECOPRO","code":"KRX：086520"},{"n":"住友金属","code":"TYO：5713"},{"n":"POSCO","code":"KRX：5490.KQ"}]},{"cat":"四氧化三钴","companies":[{"n":"中伟股份","code":"300919.SZ/2579.HK"},{"n":"格林美","code":"002340.SZ"},{"n":"华友钴业","code":"603799.SH"},{"n":"科立鑫","code":"盛屯矿业子公司"},{"n":"金川集团","code":"未上市"},{"n":"湖雅城","code":"合纵科技子公司"},{"n":"厦钨新能","code":"688778.SH"},{"n":"广东邦普","code":"CATL子公司"}]},{"cat":"钴酸锂正极","companies":[{"n":"寒锐钴业","code":"300618.SZ"},{"n":"湖南美特","code":"雪天盐业子公司"},{"n":"广州融捷","code":"002192.SZ"},{"n":"当升科技","code":"300073.SZ"},{"n":"科恒股份","code":"300340.SZ"},{"n":"盟固利","code":"301487.SZ"},{"n":"泰丰先行","code":"未上市"},{"n":"厦钨新能","code":"688778.SH"},{"n":"巴斯夫杉杉","code":"合资公司"},{"n":"天津巴莫","code":"华友子公司"}]},{"cat":"磷酸铁","companies":[{"n":"湖南裕能","code":"301358.SZ"},{"n":"万润新能","code":"688275.SH"},{"n":"贵州雅友","code":"未上市"},{"n":"湖北兴友","code":"兴发集团子公司"},{"n":"安达科技","code":"830809.BJ"},{"n":"河南佰利","code":"龙佰集团子公司"},{"n":"常州锂源","code":"龙蟠科技子公司"},{"n":"云图","code":"未上市"},{"n":"铜陵纳源","code":"未上市"},{"n":"新洋丰","code":"000902.SZ"},{"n":"贵州磷化","code":"未上市"},{"n":"彩客化学","code":"1986.HK"},{"n":"湖南雅城","code":"合纵科技子公司"}]},{"cat":"磷酸铁锂正极","companies":[{"n":"湖南裕能","code":"301358.SZ"},{"n":"万润新能","code":"688275.SH"},{"n":"德方纳米","code":"300769.SZ"},{"n":"富临升华","code":"富临精工子公司"},{"n":"友山科技","code":"华友子公司"},{"n":"常州锂源","code":"龙蟠科技子公司"},{"n":"国轩高科","code":"002074.SZ"},{"n":"泰丰先行","code":"未上市"},{"n":"协鑫锂电","code":"未独立上市"},{"n":"当升科技","code":"300073.SZ"},{"n":"金堂时代","code":"CATL子公司"},{"n":"融通高科","code":"688275.SH"},{"n":"万华化学","code":"600309.SH"},{"n":"四川朗晟","code":"未上市"},{"n":"邦普循环","code":"CATL子公司"},{"n":"丰元锂能","code":"丰元股份子公司"}]}]},{"seg":"负极材料","color":"#7a8a9c","items":[{"cat":"负极材料","companies":[{"n":"璞泰来","code":"603659.SH"},{"n":"贝特瑞","code":"920185.BJ"},{"n":"杉杉股份","code":"600884.SH"},{"n":"中科星城","code":"300035.SZ"},{"n":"翔丰华","code":"300890.SZ"},{"n":"尚太科技","code":"001301.SZ"},{"n":"碳一","code":"未上市"},{"n":"凯金能源","code":"未上市"},{"n":"广东东岛","code":"未上市"},{"n":"河北坤天","code":"未上市"},{"n":"斯诺","code":"国民技术子公司"},{"n":"内蒙古欣源","code":"未上市"},{"n":"金汇能","code":"未上市"},{"n":"青岛新泰和","code":"未上市"},{"n":"爱敏特","code":"未上市"},{"n":"佰思格","code":"未上市"},{"n":"江西正拓","code":"未上市"},{"n":"瀚博新能","code":"未上市"},{"n":"贵州晖阳","code":"未上市"},{"n":"科达新材","code":"未上市"},{"n":"宝武","code":"未上市"},{"n":"天宏基","code":"未上市"}]}]},{"seg":"电解液","color":"#0082E1","items":[{"cat":"六氟磷酸锂","companies":[{"n":"北斗星","code":"未上市"},{"n":"多氟多","code":"002407.SZ"},{"n":"江苏必康","code":"002411.SZ"},{"n":"天赐材料","code":"002709.SZ"},{"n":"新泰新材","code":"天际股份子公司"},{"n":"石大胜华","code":"603026.SH"},{"n":"浙江永太","code":"002326.SZ"},{"n":"中蓝宏源","code":"未上市"},{"n":"宏源药业","code":"301246.SZ"},{"n":"新亚杉杉","code":"新亚&杉杉合资公司"},{"n":"江西石磊","code":"未上市"},{"n":"贵州磷化","code":"未上市"},{"n":"深圳新星","code":"603978.SH"},{"n":"珠海赛纬","code":"未上市"},{"n":"金石资源","code":"603505.SH"},{"n":"立中集团","code":"300428.SZ"},{"n":"森田化工","code":"森田控股"}]},{"cat":"LiFSI","companies":[{"n":"天赐材料","code":"002709.SZ"},{"n":"如鲲新材","code":"未上市"},{"n":"时代司康","code":"CATL子公司"},{"n":"永太科技","code":"002326.SZ"},{"n":"新宙邦","code":"300037.SZ"},{"n":"山东惟普","code":"未上市"},{"n":"康鹏新材","code":"688602.SH"},{"n":"山东联化","code":"联化科技子公司"},{"n":"韩国天宝","code":"未上市"},{"n":"日本触媒","code":"TYO：4114"}]},{"cat":"VC添加剂","companies":[{"n":"山东亘元","code":"未上市"},{"n":"华盛锂电","code":"688353.SH"},{"n":"苏州华一","code":"未上市"},{"n":"孚日","code":"002083.SZ"},{"n":"富祥药业","code":"300497.SZ"},{"n":"江苏瀚康","code":"新宙邦子公司"},{"n":"山东海科","code":"海科新源子公司"},{"n":"山东惟普","code":"未上市"},{"n":"永太科技","code":"002326.SZ"},{"n":"亿普","code":"未上市"}]},{"cat":"溶剂","companies":[{"n":"胜华新材","code":"603026.SH"},{"n":"海科新源","code":"301292.SZ"}]}]},{"seg":"隔膜","color":"#3a8ae8","items":[{"cat":"隔膜","companies":[{"n":"璞泰来","code":"603659.SH"},{"n":"恩捷股份","code":"002812.SZ"},{"n":"星源材质","code":"300568.SZ"},{"n":"中材科技","code":"002080.SZ"},{"n":"博盛新材","code":"东风股份子公司"},{"n":"河北金力","code":"为佛塑收购"},{"n":"恒力石化","code":"600346.SH"},{"n":"沧州明珠","code":"002108.SZ"},{"n":"惠强新材","code":"首次申请终止"},{"n":"江苏北星","code":"未上市"},{"n":"江苏厚生","code":"苏常柴参股"},{"n":"美联新材","code":"300586.SZ"},{"n":"蓝科途","code":"未上市"},{"n":"辽源鸿图","code":"金冠电气持股"},{"n":"中兴新材","code":"未上市"},{"n":"中科科技","code":"未上市"},{"n":"泰州衡川","code":"未上市"},{"n":"长阳科技","code":"688299.SH"},{"n":"盈博莱","code":"839146.NQ"},{"n":"W-scope","code":"6619.JP"},{"n":"东丽东燃","code":"TYO：3402"},{"n":"旭化成","code":"TYO：3407"}]}]},{"seg":"箔材","color":"#9aa8ba","items":[{"cat":"铜箔","companies":[{"n":"龙电华鑫","code":"赴美上市"},{"n":"德福科技","code":"301511.SZ"},{"n":"华创新材","code":"待重启IPO"},{"n":"嘉元科技","code":"688388.SH"},{"n":"诺德股份","code":"600110.SH"},{"n":"中一科技","code":"301150.SZ"},{"n":"铜博科技","code":"未上市"},{"n":"铜冠铜箔","code":"301217.SZ"},{"n":"江铜铜箔","code":"已终止"},{"n":"宝明科技","code":"002992.SZ"},{"n":"金美新材","code":"未上市"}]},{"cat":"铝箔","companies":[{"n":"鼎胜新材","code":"603876.SH"},{"n":"华北铝业","code":"未上市"},{"n":"安徽金誉","code":"未上市"},{"n":"南南铝箔","code":"南南铝业业务"},{"n":"洛阳优箔","code":"未上市"},{"n":"安徽中基","code":"万顺新材子公司"},{"n":"永杰新材","code":"603271.SH"},{"n":"兴恒新材料","code":"603276.SH"},{"n":"厦顺铝箔","code":"未上市"},{"n":"东海铝箔","code":"南山铝业子公司"}]},{"cat":"铝塑膜","companies":[{"n":"紫江","code":"600210.SH"},{"n":"璞泰来卓越","code":"603659.SH"},{"n":"广麟","code":"未上市"},{"n":"福斯特","code":"603806.SH"},{"n":"新纶","code":"002341.SZ"},{"n":"明冠","code":"688560.SH"},{"n":"苏达","code":"未上市"},{"n":"睿捷","code":"未上市"},{"n":"至信","code":"未上市"},{"n":"DNP","code":"TYO：7912"},{"n":"Showa","code":"TYO：4004"}]}]},{"seg":"其他","color":"#7a8a9c","items":[{"cat":"氧化铝/勃姆石","companies":[{"n":"壹石通","code":"688733.SH"},{"n":"国瓷材料","code":"300285.SH"},{"n":"璞泰来","code":"603659.SH"},{"n":"联瑞新材","code":"688300.SH"}]},{"cat":"结构件","companies":[{"n":"科达利","code":"002850.SZ"},{"n":"震裕科技","code":"300953.SZ"},{"n":"斯莱克","code":"300382.SZ"},{"n":"长盈精密","code":"300115.SZ"},{"n":"和胜股份","code":"002824.SZ"},{"n":"先惠技术","code":"688155.SH"},{"n":"常铝股份","code":"002160.SZ"},{"n":"合肥力翔","code":"未上市"},{"n":"瑞德丰","code":"未上市"}]}]},{"seg":"电池","color":"#0082E1","items":[{"cat":"锂电","companies":[{"n":"宁德时代","code":"300750.SZ/3750.HK"},{"n":"比亚迪","code":"002594.SZ/1211.HK"},{"n":"LG新能源","code":"KRX：373220"},{"n":"松下","code":"TYO：6752"},{"n":"三星SDI","code":"KRX：006400"},{"n":"SKI","code":"KRX：096770"},{"n":"国轩高科","code":"002074.SZ"},{"n":"中创新航","code":"3931.HK"},{"n":"孚能科技","code":"688567.SH"},{"n":"欣旺达","code":"300207.SZ"},{"n":"亿纬锂能","code":"300014.SZ"},{"n":"鹏辉能源","code":"300438.SZ"},{"n":"派能科技","code":"688063.SH"},{"n":"远景动力","code":"未上市"},{"n":"珠海冠宇","code":"688772.SH"},{"n":"蜂巢能源","code":"已终止"},{"n":"瑞浦兰钧","code":"0666.HK"},{"n":"正力新能","code":"3677.HK"},{"n":"双登集团","code":"6960.HK"},{"n":"力神电池","code":"未上市"},{"n":"海辰","code":"IPO暂缓"}]},{"cat":"钠电","companies":[{"n":"维科技术","code":"600152.SH"},{"n":"中科海钠","code":"未上市"},{"n":"海四达","code":"普利特子公司"},{"n":"派能科技","code":"688063.SH"},{"n":"天能钠电","code":"天能股份子公司"},{"n":"超威","code":"0951.HK"},{"n":"青钠","code":"未上市"},{"n":"钠创新能源","code":"未上市"}]}]},{"seg":"设备","color":"#1f9e5e","items":[{"cat":"液/固态电池设备兼有","companies":[{"n":"璞泰来","code":"603659.SH"},{"n":"先导智能","code":"300450.SZ"},{"n":"赢合科技","code":"300457.SZ"},{"n":"逸飞激光","code":"688646.SH"},{"n":"杭可科技","code":"688006.SH"},{"n":"利元亨","code":"688499.SH"},{"n":"曼恩斯特","code":"301325.SZ"},{"n":"宏工科技","code":"未上市"},{"n":"软控股份","code":"002073.SZ"},{"n":"金银河","code":"002957.SZ"},{"n":"星云股份","code":"300648.SZ"},{"n":"联赢激光","code":"688518.SH"},{"n":"海目星","code":"688559.SH"},{"n":"纳科诺尔","code":"832522.BJ"},{"n":"荣旗科技","code":"301360.SZ"},{"n":"德龙激光","code":"688170.SH"},{"n":"华自科技","code":"300490.SZ"},{"n":"豪森智能","code":"688529.SH"},{"n":"骄成超声","code":"688392.SH"}]},{"cat":"仅有固态电池设备","companies":[{"n":"灵鸽科技","code":"920284.BJ"},{"n":"先惠技术","code":"688155.SH"},{"n":"利通科技","code":"920225.BJ"},{"n":"锡装股份","code":"001332.SZ"},{"n":"浩能科技","code":"科恒子公司"},{"n":"华亚智能","code":"003043.SZ"}]},{"cat":"仅有液态电池设备","companies":[{"n":"武汉蓝电","code":"830779.BJ"},{"n":"科恒股份","code":"300340.SZ"},{"n":"誉辰智能","code":"300619.SZ"},{"n":"科瑞技术","code":"01877.SH"}]}]},{"seg":"储能系统商","color":"#154789","items":[{"cat":"储能系统商","companies":[{"n":"正泰电器","code":"688638.SH"},{"n":"南都电源","code":"300068.SZ"},{"n":"果下科技","code":"02655.HK"},{"n":"远信储能","code":"港交所递表"},{"n":"海博思创","code":"688411.SH"},{"n":"阳光电源","code":"300274.SZ"}]}]}];
+
+// 负极材料补充：新增硅基负极企业（均未上市）。
+const anodeChainSegment = CHAIN_DATA.find(seg => seg.seg === '负极材料');
+if(anodeChainSegment && !anodeChainSegment.items.some(item => item.cat === '硅基负极')){
+  anodeChainSegment.items.push({
+    cat:'硅基负极',
+    hideCount:true,
+    hideTitle:true,
+    companies:[
+      {n:'湖碳',code:'未上市'},
+      {n:'致德',code:'未上市'},
+      {n:'矽宜',code:'未上市'}
+    ]
+  });
+}
+
+// 磷酸铁锂正极补充：加入截图中蓝色标注企业，避免重复。
+const cathodeChainSegment = CHAIN_DATA.find(seg => seg.seg === '正极材料&前驱体');
+const lfpCathodeChainItem = cathodeChainSegment && cathodeChainSegment.items.find(item => item.cat === '磷酸铁锂正极');
+if(lfpCathodeChainItem){
+  [
+    {n:'友天科技',code:'当升云天化持股'},
+    {n:'盟固利',code:'301487.SZ'},
+    {n:'容百科技',code:'688005.SH'},
+    {n:'厦钨新能',code:'688778.SH'},
+    {n:'新洋丰',code:'000902.SZ'},
+    {n:'中伟股份',code:'300919.SZ/2579.HK'},
+    {n:'天赐材料',code:'002709.SZ/港交所递表'}
+  ].forEach(company => {
+    if(!lfpCathodeChainItem.companies.some(existing => existing.n === company.n)){
+      lfpCathodeChainItem.companies.push(company);
+    }
+  });
+}
+
+// 磷酸铁企业补充：加入截图中蓝色标注企业，避免重复。
+const ironPhosphateChainItem = cathodeChainSegment && cathodeChainSegment.items.find(item => item.cat === '磷酸铁');
+if(ironPhosphateChainItem){
+  [
+    {n:'聚能新材',code:'云天化当升持股'},
+    {n:'盟固利',code:'301487.SZ'},
+    {n:'容百科技',code:'688005.SH'}
+  ].forEach(company => {
+    if(!ironPhosphateChainItem.companies.some(existing => existing.n === company.n)){
+      ironPhosphateChainItem.companies.push(company);
+    }
+  });
+}
+
+// 隔膜企业港股代码：星源材质A+H两地上市。
+const separatorChainSegment = CHAIN_DATA.find(seg => seg.seg === '隔膜');
+const seniorMaterial = separatorChainSegment && separatorChainSegment.items
+  .flatMap(item => item.companies)
+  .find(company => company.n === '星源材质');
+if(seniorMaterial){
+  seniorMaterial.code = '300568.SZ/06067.HK';
+}
+
+// 铜箔企业上市状态更新。
+const foilChainSegment = CHAIN_DATA.find(seg => seg.seg === '箔材');
+const jiangxiCopperFoil = foilChainSegment && foilChainSegment.items
+  .flatMap(item => item.companies)
+  .find(company => company.n === '江铜铜箔');
+if(jiangxiCopperFoil){
+  jiangxiCopperFoil.code = '筹划港股上市';
+}
+
+// 锂电产业链只保留锂电企业；钠电企业在独立钠电产业链中展示。
+const lithiumBatteryChainSegment = CHAIN_DATA.find(seg => seg.seg === '电池');
+if(lithiumBatteryChainSegment){
+  lithiumBatteryChainSegment.items = lithiumBatteryChainSegment.items.filter(item => item.cat !== '钠电');
+  const lithiumCellChainItem = lithiumBatteryChainSegment.items.find(item => item.cat === '锂电');
+  if(lithiumCellChainItem){
+    [
+      {n:'清陶能源',code:'港交所递表'},
+      {n:'亿纬集能',code:'亿纬锂能子公司'},
+      {n:'宁波均恩',code:'均胜恩力合资'},
+      {n:'华南齐光',code:'未上市'},
+      {n:'国科能源',code:'未上市'},
+      {n:'长虹三杰',code:'长虹子公司'},
+      {n:'三合正',code:'未上市'},
+      {n:'卫蓝海博',code:'卫蓝新能源控股'},
+      {n:'融捷股份',code:'002192.SZ'}
+    ].forEach(company => {
+      if(!lithiumCellChainItem.companies.some(existing => existing.n === company.n)){
+        lithiumCellChainItem.companies.push(company);
+      }
+    });
+  }
+}
+
+// 储能系统商企业补充。
+const storageSystemChainSegment = CHAIN_DATA.find(seg => seg.seg === '储能系统商');
+const storageSystemChainItem = storageSystemChainSegment && storageSystemChainSegment.items.find(item => item.cat === '储能系统商');
+if(storageSystemChainItem && !storageSystemChainItem.companies.some(company => company.n === '星辰新能')){
+  storageSystemChainItem.companies.push({n:'星辰新能',code:'未上市'});
+}
 
 // ===== 钠电产业链全景（材料端 + 电芯端）=====
 const CHAIN_DATA_NA=[
@@ -2049,6 +2151,22 @@ const MATERIAL_CHARTS=[
       companies:["中伟","华友","格林美","金川","厦钨","合肥融捷","锦源晟","邦普","湖南雅城","科立鑫","逸豪优美科"],
       capacity:[5.5,4.5,3.0,1.5,1.2,1.0,1.0,1.0,0.8,0.5,0.5],
       utilization:[49.8181818182,47.3333333333,26.3333333333,27.3333333333,83.3333333333,2.4,62.56,9.4,4.25,36.8,6.8]
+    },
+    supplyDemand:{
+      oldPeriod:"25A",
+      oldData:[
+        {name:"中伟",value:3.24},{name:"华友",value:3.13},{name:"格林美",value:1.51},
+        {name:"厦钨",value:1.105},{name:"金川",value:0.71},{name:"锦源晟",value:0.6407},
+        {name:"科立鑫",value:0.056},{name:"湖南雅城",value:0.038},{name:"逸豪优美科",value:0.037},
+        {name:"其他",value:0.067}
+      ],
+      newPeriod:"26H1",
+      newData:[
+        {name:"中伟",value:1.37},{name:"华友",value:1.065},{name:"厦钨",value:0.5},
+        {name:"格林美",value:0.395},{name:"锦源晟",value:0.3128},{name:"金川",value:0.205},
+        {name:"科立鑫",value:0.092},{name:"邦普",value:0.047},{name:"逸豪优美科",value:0.017},
+        {name:"其他",value:0.029}
+      ]
     },
     outlook:{
       scopeLabel:"",h2:3.7,h2Yoy:-36,annual:7.8,annualYoy:-26,
@@ -2563,6 +2681,11 @@ PV_DATA.emerging = {
       {name:'马来',data:[0.09,0.07,0.11,0.16]},
       {name:'菲律宾',data:[0.06,0.02,0.07,0.02]}
     ]
+  },
+  southeastAsiaTop10:{
+    cats:['比亚迪','吉利','奇瑞','长安','长城','特斯拉','江苏悦达起亚','上汽乘用车','江铃','上汽通用五菱'],
+    sales:[12.3,7,6.98,3,1.8,1.49,1.46,1.31,1.3,1],
+    yoy:[1.963,0.465,1.327,0.70,0.553,0.185,0.063,-0.396,0.091,-0.49]
   }
 };
 
@@ -3145,11 +3268,17 @@ function renderChainTo(wrapId, data){
   const wrap = document.getElementById(wrapId);
   if(!wrap) return;
   wrap.innerHTML = data.map(seg => {
-    const subs = seg.items.map(sub => {
+    const subs = seg.items.map((sub,subIndex) => {
       const comps = sub.companies.map(c =>
         `<span class="chain-comp">${c.n}<span class="code">${c.code}</span></span>`
       ).join('');
-      return `<div class="chain-sub"><div class="sub-name">${sub.cat}（${sub.companies.length}）</div><div class="chain-comps">${comps}</div></div>`;
+      let displayCount = sub.companies.length;
+      if(!sub.hideTitle){
+        for(let nextIndex=subIndex+1; nextIndex<seg.items.length && seg.items[nextIndex].hideTitle; nextIndex++){
+          displayCount += seg.items[nextIndex].companies.length;
+        }
+      }
+      return `<div class="chain-sub">${sub.hideTitle?'':`<div class="sub-name">${sub.cat}${sub.hideCount?'':'（'+displayCount+'）'}</div>`}<div class="chain-comps">${comps}</div></div>`;
     }).join('');
     return `<div class="chain-seg">
       <div class="seg-title" style="color:${seg.color};border-bottom-color:${seg.color}">
@@ -4746,20 +4875,25 @@ function cobaltTetroxideHTML(m,i){
     <section class="material-subsection">
       <h2 class="material-section-heading">二、企业竞争格局</h2>
       <div class="mat-special-grid">
-        <section class="mat-special-chart ${m.supplyDemand?'':'wide'}">
+        <section class="mat-special-chart wide">
           <div class="analysis-item chart-analysis static-analysis-item"><div class="static-analysis-title">26H1企业产能与开工率</div><div class="analysis-detail">中伟、华友产能位居前二。行业开工率分化严重，头部企业中伟和华友保持45%以上开工率，格林美、金川、科立鑫维持30%以内的开工率；厦钨、锦源晟的开工率相对较高，合肥融捷、湖南雅城、逸豪优美科及邦普开工率较低。</div></div>
           <div class="chart" id="mat-cobalt-company-${i}"></div><p class="m-src">数据来源：${m.source}</p>
         </section>
         ${m.supplyDemand ? `<section class="mat-special-chart wide">
-          <h3>26H1企业产量格局变化</h3>
+          <h3>25A→26H1企业产量格局变化</h3>
+          <div class="material-chart-description">
+            <p>■ 行业仍维持中伟、华友双龙头格局，CR2由<span class="metric-red">60.5%</span>微降至<span class="metric-red">60.4%</span>，整体保持稳定；但龙头内部出现分化，中伟份额由<span class="metric-red">30.8%</span>升至<span class="metric-red">34.0%</span>，华友由<span class="metric-red">29.7%</span>降至<span class="metric-red">26.4%</span>，两者份额差距由1.1个百分点扩大至7.6个百分点。</p>
+            <p>■ 第二梯队重新排序：厦钨份额由<span class="metric-red">10.5%</span>升至<span class="metric-red">12.4%</span>，超过格林美升至第三；格林美由<span class="metric-red">14.3%</span>降至<span class="metric-red">9.8%</span>，为主要企业中份额回落最大；锦源晟由6.1%升至7.8%，金川由6.7%降至5.1%。</p>
+            <p>■ 腰尾部份额有所扩散：科立鑫由0.5%升至2.3%，邦普在26H1取得1.2%份额；CR5由<span class="metric-red">92.0%</span>降至<span class="metric-red">90.3%</span>，行业高集中格局未变，但集中度小幅回落。</p>
+          </div>
           <div class="chart" id="mat-cobalt-supply-${i}"></div><p class="m-src">数据来源：${m.source}</p>
         </section>` : ''}
       </div>
       <section class="lfp-competition-section">
         <ul class="lfp-competition-bullets">
-          <li>第一梯队龙头：中伟、华友分列行业前二，中伟深度绑定厦钨（90%出货供给），需求韧性较强，同比仅下滑5%；华友客户覆盖巴莫、当升、杉杉多家一线正极，受消费电子需求走弱拖累，产量同比下滑23%；厦钨自有产能完全内部自用，产量小幅收缩1%，抗周期能力最优。</li>
-          <li>第二梯队分化加剧：格林美依托再生钴拥有成本优势，但客户分散且下游普遍去库存，同比大幅减产46%；金川独家配套盟固利，下游需求逐年递减，产量下滑40%。</li>
-          <li>尾部中小厂商全线承压：逸豪优美科、湖南雅城、合肥融捷均无头部正极长协，仅供货零散中小钴酸锂厂，叠加原料成本倒挂、低端产品竞争力不足，产量同步下滑10%-15%区间，行业低端落后产能持续出清。</li>
+          <li><strong>头部格局：</strong>中伟与华友CR2稳定在60%左右，中伟份额提升并拉开领先差距，行业龙头由“并驾齐驱”转向“一强一稳”。</li>
+          <li><strong>第二梯队：</strong>厦钨超过格林美升至第三，锦源晟份额同步提升；格林美、金川份额回落，第二梯队排序发生明显变化。</li>
+          <li><strong>腰尾部：</strong>科立鑫、邦普份额增加，带动CR5小幅下降，但前五企业仍占九成以上，行业总体维持高度集中。</li>
         </ul>
         ${cobaltPerformanceTableHTML(m.source)}
       </section>
@@ -4827,6 +4961,38 @@ function renderCobaltTetroxide(m,i){
       ]
     });
     matCharts['cobaltCompany'+i]=c;
+  }
+
+  const supplyEl = document.getElementById('mat-cobalt-supply-' + i);
+  if(supplyEl && m.supplyDemand){
+    const c = echarts.init(supplyEl);
+    const companyOrder = m.supplyDemand.newData.map(d=>d.name);
+    m.supplyDemand.oldData.forEach(d=>{ if(!companyOrder.includes(d.name)) companyOrder.push(d.name); });
+    const colorMap = {};
+    companyOrder.forEach((name,index)=>{ colorMap[name] = name==='其他' ? '#c4ccd6' : PIE_PALETTE[index % PIE_PALETTE.length]; });
+    const withColors = data => {
+      const total = data.reduce((sum,d)=>sum+Number(d.value || 0),0);
+      return data.map(d=>{
+        const hide = total > 0 && Number(d.value)/total*100 < 2;
+        return {name:d.name,value:d.value,itemStyle:{color:colorMap[d.name]},...(hide?{label:{show:false},labelLine:{show:false}}:{})};
+      });
+    };
+    const pieLabel = p => p.name+' '+Number(p.percent).toFixed(1)+'%';
+    c.setOption({
+      aria:{enabled:true,description:'四氧化三钴25A与26H1企业产量竞争格局变化。'},
+      title:[
+        {text:m.supplyDemand.oldPeriod,left:'27%',top:18,textAlign:'center',textStyle:{fontSize:19,color:'#102a56',fontWeight:'normal'}},
+        {text:m.supplyDemand.newPeriod,left:'73%',top:18,textAlign:'center',textStyle:{fontSize:19,color:'#102a56',fontWeight:'normal'}}
+      ],
+      tooltip:{trigger:'item',formatter:p=>'<b>'+p.seriesName+'</b><br>'+p.marker+p.name+'：'+Number(p.value).toFixed(4).replace(/\.?0+$/,'')+'万吨（'+Number(p.percent).toFixed(1)+'%）'},
+      legend:{show:false},
+      graphic:[{type:'text',left:'49%',top:8,silent:true,z:10,style:{text:'→',fill:'#0082E1',font:'700 36px Microsoft YaHei'}}],
+      series:[
+        {name:m.supplyDemand.oldPeriod,type:'pie',radius:['28%','45%'],center:['27%','52%'],data:withColors(m.supplyDemand.oldData),minShowLabelAngle:0,avoidLabelOverlap:true,label:{show:true,position:'outside',formatter:pieLabel,fontSize:16,color:'#000',lineHeight:20},labelLine:{show:true,length:8,length2:6,lineStyle:{color:'#9aa8ba',width:1}},labelLayout:{hideOverlap:true},itemStyle:{borderColor:'#fff',borderWidth:1}},
+        {name:m.supplyDemand.newPeriod,type:'pie',radius:['28%','45%'],center:['73%','52%'],data:withColors(m.supplyDemand.newData),minShowLabelAngle:0,avoidLabelOverlap:true,label:{show:true,position:'outside',formatter:pieLabel,fontSize:16,color:'#000',lineHeight:20},labelLine:{show:true,length:8,length2:6,lineStyle:{color:'#9aa8ba',width:1}},labelLayout:{hideOverlap:true},itemStyle:{borderColor:'#fff',borderWidth:1}}
+      ]
+    });
+    matCharts['cobaltSupply'+i]=c;
   }
   renderTernaryOutlook('mat-cobalt-outlook-'+i,m.outlook,'四氧化三钴产量环比情况预测','cobaltOutlook'+i);
 }
@@ -5624,7 +5790,7 @@ function renderCellTotalCompanyShipment(){
   const shipment24 = [450.9,186.3,102.7,77,67.4,31.4,44.3,32.9,18.8,0,10.4,39,34.9,4.5,44.4];
   const shipment25 = [624.9,254.2,119.6,110.5,115.7,69.8,78,63.9,35.1,23.3,21.7,43.5,44.2,30.8,52.1];
   const shipment26 = [355.9,120.4,71.2,68.9,61.7,48.1,45.8,45,32.1,30.9,20.6,19.1,18.9,18.1,13.2];
-  const fmt = value => Number(value).toFixed(1).replace(/\.0$/,'');
+  const fmt = value => String(Math.round(Number(value)));
   const c = echarts.init(el);
   c.setOption({
     aria:{enabled:true,description:'24A、25A及26H1全球主要电芯企业总体出货量。'},
@@ -6254,12 +6420,12 @@ function renderPVChina(){
       xAxis:{type:'category',data:o.cats,axisLabel:{fontSize:16,color:'#000'},axisLine:{show:false},axisTick:{show:false}},
       yAxis:[
         {type:'value',name:'销量（万辆）',min:0,max:1500,interval:300,axisLabel:{fontSize:16,color:'#000'},nameTextStyle:{fontSize:16,color:'#000'},axisLine:{show:false},axisTick:{show:false},splitLine:{show:false}},
-        {type:'value',name:'销量同比/渗透率',min:-20,max:60,interval:20,axisLabel:{fontSize:16,color:'#000',formatter:v=>v+'%'},nameTextStyle:{fontSize:16,color:'#000'},axisLine:{show:false},axisTick:{show:false},splitLine:{show:false}}
+        {type:'value',name:'',min:-20,max:60,interval:20,axisLabel:{fontSize:16,color:'#000',formatter:v=>v+'%'},axisLine:{show:false},axisTick:{show:false},splitLine:{show:false}}
       ],
       series:[
-        {name:'新能源PV销量',type:'bar',barMaxWidth:90,data:o.sales,itemStyle:{color:'#00c974'},label:{show:true,position:'top',distance:7,fontSize:16,color:'#000',formatter:p=>Number(p.value).toFixed(1)}},
-        {name:'销量同比',type:'line',yAxisIndex:1,data:o.yoy.map((value,index)=>({value,label:{position:index===1?'bottom':'top',offset:index===0?[-18,6]:[20,6]}})),symbol:'diamond',symbolSize:9,lineStyle:{width:2.8,color:'#4b5563'},itemStyle:{color:'#fff',borderColor:'#4b5563',borderWidth:2},label:{show:true,position:'top',distance:12,fontSize:16,formatter:p=>Number(p.value).toFixed(1)+'%',color:'#4b5563'}},
-        {name:'电动化渗透率',type:'line',yAxisIndex:1,data:o.penetration.map((value,index)=>({value,label:{offset:index===0?[0,-20]:[0,-20]}})),symbol:'diamond',symbolSize:9,lineStyle:{width:2.8,color:'#aeb8c0'},itemStyle:{color:'#fff',borderColor:'#aeb8c0',borderWidth:2},label:{show:true,position:'top',distance:18,fontSize:16,color:'#7c8994',formatter:p=>Number(p.value).toFixed(1)+'%'}}
+        {name:'新能源PV销量',type:'bar',barMaxWidth:90,data:o.sales,itemStyle:{color:'#00c974'},label:{show:true,position:'insideTop',distance:10,fontSize:16,color:'#fff',fontWeight:'700',formatter:p=>Number(p.value).toFixed(1)}},
+        {name:'销量同比',type:'line',yAxisIndex:1,data:o.yoy.map((value,index)=>({value,label:index===0?{position:'right',offset:[50,-8]}:{position:'left',offset:[-50,-22]}})),symbol:'diamond',symbolSize:9,lineStyle:{width:2.8,color:'#4b5563'},itemStyle:{color:'#fff',borderColor:'#4b5563',borderWidth:2},label:{show:true,distance:12,fontSize:16,formatter:p=>Number(p.value).toFixed(1)+'%',color:'#4b5563',backgroundColor:'rgba(255,255,255,.94)',padding:[2,4],borderRadius:3}},
+        {name:'电动化渗透率',type:'line',yAxisIndex:1,data:o.penetration.map(value=>({value,label:{position:'top',offset:[0,-10]}})),symbol:'diamond',symbolSize:9,lineStyle:{width:2.8,color:'#aeb8c0'},itemStyle:{color:'#fff',borderColor:'#aeb8c0',borderWidth:2},label:{show:true,position:'top',distance:14,fontSize:16,color:'#7c8994',formatter:p=>Number(p.value).toFixed(1)+'%',backgroundColor:'rgba(255,255,255,.94)',padding:[2,4],borderRadius:3}}
       ]
     });
     pvCharts.chinaSalesOverview = c;
@@ -6329,14 +6495,18 @@ function renderPVChinaExport(){
     ];
     c.setOption({
       aria:{enabled:true,description:'26H1中国乘用车出口结构，新能源乘用车与传统燃油车销量及占比。'},
-      tooltip:{trigger:'item',formatter:p=>p.marker+p.name+'：'+Number(p.value).toFixed(1)+'万辆（'+Math.round(Number(p.percent))+'%）'},
+      tooltip:{trigger:'item',formatter:p=>p.marker+p.name+'：'+Number(p.value).toFixed(1)+'万辆（'+Number(p.percent).toFixed(1)+'%）'},
       legend:{top:12,left:'center',data:['新能源乘用车','传统燃油车'],itemGap:28,textStyle:{fontSize:16,color:'#000'}},
       series:[{
-        name:'26H1乘用车出口结构',type:'pie',radius:['34%','62%'],center:['50%','57%'],data:exportMix,
+        name:'26H1乘用车出口结构',type:'pie',radius:['33%','57%'],center:['50%','57%'],data:exportMix,
         minShowLabelAngle:0,avoidLabelOverlap:true,
-        label:{show:false},
-        labelLine:{show:false},
-        labelLayout:{hideOverlap:false},itemStyle:{borderColor:'#fff',borderWidth:1.5}
+        label:{
+          show:true,position:'outside',distanceToLabelLine:3,fontSize:13,color:'#102a56',lineHeight:18,width:112,overflow:'break',
+          formatter:p=>'{value|'+Number(p.value).toFixed(1)+'万辆}\n{share|占比'+Number(p.percent).toFixed(1)+'%}',
+          rich:{value:{fontSize:14,fontWeight:700,color:'#102a56',lineHeight:19},share:{fontSize:13,color:'#5f7186',lineHeight:18}}
+        },
+        labelLine:{show:true,length:12,length2:9,smooth:0.12,lineStyle:{width:1.1,color:'#94a3b8'}},
+        labelLayout:{hideOverlap:false,moveOverlap:'shiftY',bleedMargin:4},itemStyle:{borderColor:'#fff',borderWidth:1.5}
       }]
     });
     pvCharts.cnExportOverview = c;
@@ -6497,6 +6667,40 @@ function renderPVEmerging(){
     });
     pvCharts.emergingPenetration = c;
   }
+
+  const seaTopEl = document.getElementById('pv-emerging-sea-top10');
+  if(seaTopEl){
+    const top = d.southeastAsiaTop10;
+    const fmtSales = value => Number(value).toFixed(2).replace(/0+$/,'').replace(/\.$/,'');
+    const c = echarts.init(seaTopEl);
+    c.setOption({
+      aria:{enabled:true,description:'2025年1至10月中国车企出口东南亚前十名及累计同比。'},
+      legend:{top:8,left:'center',data:['1-10月出口量（万辆）','累计同比'],itemGap:30,textStyle:{fontSize:16,color:'#000'}},
+      tooltip:{trigger:'axis',axisPointer:{type:'shadow'},formatter:params=>'<b>'+params[0].axisValue+'</b><br>'+params.map(p=>p.marker+p.seriesName+'：'+(p.seriesName==='累计同比'?Number(p.value*100).toFixed(1)+'%':fmtSales(p.value)+'万辆')).join('<br>')},
+      grid:{left:28,right:42,top:94,bottom:78,containLabel:true},
+      xAxis:{type:'category',data:top.cats,axisLabel:{interval:0,fontSize:15,color:'#000',formatter:v=>v==='江苏悦达起亚'?'江苏悦达\n起亚':(v==='上汽通用五菱'?'上汽通用\n五菱':v)},axisLine:{lineStyle:{color:'#cbd4f8'}},axisTick:{show:false}},
+      yAxis:[
+        {type:'value',name:'出口量（万辆）',min:0,max:14,interval:2,axisLabel:{fontSize:15,color:'#000'},nameTextStyle:{fontSize:15,color:'#000'},axisLine:{show:false},axisTick:{show:false},splitLine:{show:false}},
+        {type:'value',name:'累计同比',min:-0.8,max:2.4,interval:0.4,axisLabel:{fontSize:15,color:'#000',formatter:v=>Math.round(v*100)+'%'},nameTextStyle:{fontSize:15,color:'#000'},axisLine:{show:false},axisTick:{show:false},splitLine:{show:false}}
+      ],
+      series:[
+        {name:'1-10月出口量（万辆）',type:'bar',barMaxWidth:48,data:top.sales,itemStyle:{color:'#0082E1'},label:{show:true,position:'insideTop',distance:5,fontSize:15,fontWeight:700,color:'#fff',formatter:p=>fmtSales(p.value)},labelLayout:{hideOverlap:false}},
+        {
+          name:'累计同比',type:'line',yAxisIndex:1,
+          data:top.yoy.map((value,index)=>({
+            value,
+            label:value<0
+              ? (index===top.yoy.length-1?{position:'right',offset:[14,-6]}:{position:'left',offset:[-14,-6]})
+              : {position:'top',offset:[0,-8]}
+          })),
+          symbol:'diamond',symbolSize:9,lineStyle:{width:2.8,color:'#7f919c'},itemStyle:{color:'#fff',borderColor:'#7f919c',borderWidth:2},
+          label:{show:true,distance:12,fontSize:15,color:'#1f2937',backgroundColor:'rgba(255,255,255,.94)',padding:[2,4],borderRadius:3,formatter:p=>Number(p.value*100).toFixed(1)+'%'},
+          labelLayout:{hideOverlap:false}
+        }
+      ]
+    });
+    pvCharts.emergingSeaTop10 = c;
+  }
 }
 
 function renderPV(){
@@ -6518,6 +6722,14 @@ function renderPV(){
 renderPV();
 
 
+// ===== 中国商用车内销、出口概览 =====
+const CV_CN_OVERVIEW = {
+  cats:['25A\n内销','25A\n出口','26H1\n内销','26H1\n出口'],
+  total:[323.7,106.0,163.3,66.4],
+  nev:[87.1,8.3,49.6,5.4],
+  yoy:[63.7,86.8,40.2,9.9]
+};
+
 // ===== 全球商用车概览（tag2 第一行）=====
 const CV_GLOBAL = {
   cats:['中国','欧洲','美国','其他'],
@@ -6528,6 +6740,30 @@ const CV_GLOBAL = {
 const cvGlobalCharts = {};
 
 function renderCVGlobal(){
+  const overview = CV_CN_OVERVIEW;
+  const overviewEl = document.getElementById('cv-cn-overview');
+  if(overviewEl){
+    const c = echarts.init(overviewEl);
+    const penetration = overview.nev.map((value,index)=>value/overview.total[index]*100);
+    c.setOption({
+      aria:{enabled:true,description:'25A及26H1中国新能源商用车内销、出口数量、销量同比及电动化渗透率。'},
+      legend:{top:8,left:'center',data:['内销量','出口量','销量同比','电动化渗透率'],itemGap:24,textStyle:{fontSize:16,color:'#000'}},
+      tooltip:{trigger:'axis',axisPointer:{type:'shadow'},formatter:params=>'<b>'+params[0].axisValue.replace('\n',' ')+'</b><br>'+params.map(p=>p.marker+p.seriesName+'：'+Number(p.value).toFixed(1)+(p.seriesName==='内销量'||p.seriesName==='出口量'?'万辆':'%')).join('<br>')},
+      grid:{left:28,right:34,top:88,bottom:62,containLabel:true},
+      xAxis:{type:'category',data:overview.cats,axisLabel:{interval:0,fontSize:16,color:'#000',lineHeight:22},axisLine:{show:false},axisTick:{show:false}},
+      yAxis:[
+        {type:'value',name:'新能源销量（万辆）',min:0,max:100,interval:20,axisLabel:{fontSize:16,color:'#000'},nameTextStyle:{fontSize:16,color:'#000'},axisLine:{show:false},axisTick:{show:false},splitLine:{show:false}},
+        {type:'value',name:'同比 / 渗透率',min:0,max:100,interval:20,axisLabel:{fontSize:16,color:'#000',formatter:v=>v+'%'},nameTextStyle:{fontSize:16,color:'#000'},axisLine:{show:false},axisTick:{show:false},splitLine:{show:false}}
+      ],
+      series:[
+        {name:'内销量',type:'bar',barMaxWidth:62,barGap:'-100%',data:[overview.nev[0],null,overview.nev[2],null],itemStyle:{color:'#00c974'},label:{show:true,position:'insideTop',distance:6,fontSize:15,fontWeight:700,color:'#fff',formatter:p=>Number(p.value).toFixed(1)}},
+        {name:'出口量',type:'bar',barMaxWidth:62,barGap:'-100%',data:[null,overview.nev[1],null,overview.nev[3]],itemStyle:{color:'#0082E1'},label:{show:true,position:'insideTop',distance:6,fontSize:15,fontWeight:700,color:'#fff',formatter:p=>Number(p.value).toFixed(1)}},
+        {name:'销量同比',type:'line',yAxisIndex:1,data:overview.yoy,symbol:'diamond',symbolSize:9,lineStyle:{width:2.8,color:'#4b5563'},itemStyle:{color:'#fff',borderColor:'#4b5563',borderWidth:2},label:{show:true,position:'top',distance:13,fontSize:15,color:'#4b5563',backgroundColor:'rgba(255,255,255,.94)',padding:[2,4],borderRadius:3,formatter:p=>Number(p.value).toFixed(1)+'%'}},
+        {name:'电动化渗透率',type:'line',yAxisIndex:1,data:penetration.map((value,index)=>({value,label:index===1?{position:'right',offset:[12,4]}:(index===3?{position:'left',offset:[-12,4]}:{position:'bottom',offset:[0,7]})})),symbol:'diamond',symbolSize:9,lineStyle:{width:2.8,color:'#aeb8c0'},itemStyle:{color:'#fff',borderColor:'#aeb8c0',borderWidth:2},label:{show:true,distance:13,fontSize:15,color:'#7c8994',backgroundColor:'rgba(255,255,255,.94)',padding:[2,4],borderRadius:3,formatter:p=>Number(p.value).toFixed(1)+'%'}}
+      ]
+    });
+    cvGlobalCharts.cnOverview = c;
+  }
   const g = CV_GLOBAL;
   const pct = v => Math.round(v*100)+'%';
   // 组合图：双柱 + 渗透率折线
@@ -6623,7 +6859,7 @@ function renderCVHeavy(){
       series:[
         {name:'25A电动销量',type:'bar',barMaxWidth:22,data:g.sales25,
           itemStyle:{color:'#00c974'},label:{show:false}},
-        {name:'26电动销量（H2E）',type:'bar',barMaxWidth:22,
+        {name:'26电动销量',type:'bar',barMaxWidth:22,
           itemStyle:{color:'#7f919c'},
           data:g.sales26.map((v,i)=>({value:v,itemStyle:{color:i<6?'#7f919c':'#d5dde1'}})),
           label:{show:false}},
