@@ -554,6 +554,66 @@
   .price-list li{ padding-left:4px; }
   .price-label{ color:#0874bd; font-weight:800; }
   .price-red{ color:#f11; }
+  .tax-overview{ padding-top:26px; }
+  .tax-content{
+    padding:18px 22px 0;
+    background:#fff;
+  }
+  .tax-lead{
+    margin:0 0 18px;
+    color:#0874bd;
+    font-size:clamp(22px,2.2vw,31px);
+    font-weight:800;
+    line-height:1.5;
+  }
+  .tax-timeline{
+    display:grid;
+    grid-template-columns:repeat(4,minmax(0,1fr));
+    gap:10px;
+    margin-bottom:22px;
+  }
+  .tax-event{
+    min-height:112px;
+    padding:12px 14px;
+    border-radius:8px;
+    color:#fff;
+    background:#0785e5;
+    font-size:16px;
+    line-height:1.6;
+  }
+  .tax-event.green{ background:#00c974; }
+  .tax-event.gray{ background:#7d8c93; }
+  .tax-date{ display:block; margin-bottom:5px; font-weight:800; }
+  .tax-event strong{ color:#ffe600; }
+  .tax-policy-list{ display:grid; gap:12px; }
+  .tax-policy{
+    display:grid;
+    grid-template-columns:130px 120px minmax(240px,1.2fr) 120px minmax(280px,2fr);
+    border:1px solid #182870;
+    background:#fff;
+  }
+  .tax-policy > div{
+    padding:12px 14px;
+    border-right:1px solid #182870;
+    font-size:16px;
+    line-height:1.7;
+  }
+  .tax-policy > div:last-child{ border-right:0; }
+  .tax-policy .tax-policy-name{ display:flex; align-items:center; justify-content:center; color:#12234b; font-weight:800; font-size:18px; text-align:center; }
+  .tax-policy .tax-policy-head{ color:#12234b; background:#d7d7d7; font-weight:800; text-align:center; }
+  .tax-policy .tax-impact{ color:#34465a; }
+  .tax-policy .tax-judgment strong{ color:#f11; }
+  @media (max-width:768px){
+    .tax-overview{ padding-top:22px; }
+    .tax-content{ padding:14px 16px 0; }
+    .tax-timeline{ grid-template-columns:1fr; }
+    .tax-event{ min-height:0; }
+    .tax-policy{ display:block; border-radius:8px; overflow:hidden; }
+    .tax-policy > div{ border-right:0; border-bottom:1px solid #182870; padding:10px 12px; font-size:16px; }
+    .tax-policy > div:last-child{ border-bottom:0; }
+    .tax-policy .tax-policy-name{ justify-content:flex-start; text-align:left; background:#eef4fb; }
+    .tax-policy .tax-policy-head{ text-align:left; }
+  }
   .material-title{
     margin:0 0 18px;
     color:#0082e1;
@@ -1308,6 +1368,47 @@
           </ul>
         </section>
         <div class="capital-conclusion">2026年上半年产业链资本行为呈现明显分化：储能、钠电、细分锂电辅材资本化热度较高，多家企业推进港股、美股IPO；传统过剩材料赛道IPO申报遇冷，部分企业终止上市计划。固态设备、LiFSI、硬碳等新兴细分环节独立标的持续增多；钠电产业链企业大量涌现，但多数仍处于未上市阶段。</div>
+      </div>
+    </section>
+
+    <section class="tax-overview">
+      <button class="overview-toggle material-title" type="button" aria-expanded="false" aria-controls="tax-summary-content">
+        <span>五、电池行业三大税收政策</span><span class="toggle-icon" aria-hidden="true">＋</span>
+      </button>
+      <div class="tax-content" id="tax-summary-content" hidden>
+        <p class="tax-lead">三大税收政策：油电同权大幕正式拉开，加速行业竞争淘汰</p>
+        <div class="tax-timeline" aria-label="电池行业税收政策时间轴">
+          <div class="tax-event green"><span class="tax-date">26年4月1日</span>电池产品增值税出口退税率调至<strong>6%</strong></div>
+          <div class="tax-event"><span class="tax-date">26年9月1日</span>锂离子蓄电池按<strong>2%</strong>税率征收消费税</div>
+          <div class="tax-event"><span class="tax-date">27年1月1日</span>电池产品增值税出口退税率完全取消（<strong>0%</strong>）</div>
+          <div class="tax-event"><span class="tax-date">27年4月1日</span>光伏电池按<strong>2%</strong>税率征收消费税</div>
+          <div class="tax-event"><span class="tax-date">27年9月1日</span>锂离子蓄电池税率升至<strong>4%</strong></div>
+          <div class="tax-event gray"><span class="tax-date">28年4月1日</span>取消插混乘用车及新能源商用车免征车船税，纯电乘用车继续免税</div>
+          <div class="tax-event"><span class="tax-date">29年</span>全面到位，锂电+光伏均按<strong>4%</strong>征收；钠离子、固态电池免税至2028年底</div>
+        </div>
+        <div class="tax-policy-list" aria-label="三项税收政策摘要">
+          <article class="tax-policy">
+            <div class="tax-policy-name">出口退税</div>
+            <div><strong>2026.4.1起</strong></div>
+            <div>自2026年4月1日起至2026年12月31日，将电池产品的增值税出口退税率由9%下调至6%；2027年1月1日起，取消电池产品增值税出口退税。</div>
+            <div class="tax-impact">电池、供应链</div>
+            <div class="tax-judgment">✓ 此前税率从13%降低至9%，海外需求没有受到冲击，大概<span class="price-red">电池与下游按3:7的比例</span>承担退税影响；政策明确27年退税全部取消，幅度较大，<strong>26年Q4会抢出口</strong>，也侧面验证头部电池厂此前不断上修全年排产预期的底层逻辑。</div>
+          </article>
+          <article class="tax-policy">
+            <div class="tax-policy-name">电池消费税</div>
+            <div><strong>2026.9.1起</strong></div>
+            <div>对锂离子电池征收2%~4%消费税；对钠离子、固态电池免征至2028年底（注：出口锂电池不在征收之列）。</div>
+            <div class="tax-impact">电池、车企、储能</div>
+            <div class="tax-judgment">✓ 锂电池2%的消费税将使电芯成本增加约<span class="price-red">0.007元/Wh</span>，一台60kWh家用电动车电芯成本约提高400元；储能IRR按4%税率，提升约<span class="price-red">0.014元/Wh</span>，相当于碳酸锂价格上涨1.2万至2.4万元/吨，储能IRR下滑0.5~0.8pct。<br>✓ <span class="price-label">电池税在生产环节征收，车企自产电池可边际避税；</span><br>✓ 钠离子、固态电池免征至2028年底，为布局下一代电池技术提供政策缓冲期。</div>
+          </article>
+          <article class="tax-policy">
+            <div class="tax-policy-name">车船税优惠退坡</div>
+            <div><strong>2027.1.1起</strong></div>
+            <div>取消对纯电动商用车、插电式（含增程式）混合动力汽车、燃料电池商用车免征车船税政策，纯电乘用车继续免税。</div>
+            <div class="tax-impact">消费者、车企</div>
+            <div class="tax-judgment">✓ 整体影响可控：插混乘用车1.5T排量对应每年缴纳300元左右，2.0T对应500元左右，纯电动商用车对应一年需缴纳500元左右；整体新增成本较小，预计影响可控，且纯电乘用车无内燃机继续免征，有利于<span class="price-red">纯电乘用车占比进一步提升</span>。</div>
+          </article>
+        </div>
       </div>
     </section>
   </section>
