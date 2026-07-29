@@ -105,6 +105,15 @@
     border-color:#fff;
     font-weight:700;
   }
+  header.app .tag.overview-tag{
+    cursor:pointer;
+    background:rgba(255,255,255,.28);
+    font-weight:700;
+  }
+  header.app .tag.overview-tag.active{
+    background:#fff;
+    color:#154789;
+  }
   header.app .tag.active .num{ background:#154789; color:#fff; }
   header.app .tag .num{
     background:rgba(255,255,255,.25);
@@ -435,6 +444,175 @@
   /* 板块（panel）切换：默认隐藏，.active 显示 */
   .panel{ display:none; }
   .panel.active{ display:flex; flex-direction:column; gap:24px; }
+
+  /* 概览摘要 */
+  .overview-panel{ gap:0 !important; }
+  .overview-title{
+    margin:0;
+    padding:0 0 18px;
+    color:#0082e1;
+    font-size:clamp(28px,3vw,42px);
+    line-height:1.2;
+    letter-spacing:.02em;
+  }
+  .overview-toggle{
+    width:100%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+    border:0;
+    background:transparent;
+    font-family:inherit;
+    text-align:left;
+    cursor:pointer;
+  }
+  .overview-toggle .toggle-icon{
+    flex:0 0 auto;
+    color:#0874bd;
+    font-size:28px;
+    line-height:1;
+    transition:transform .18s ease;
+  }
+  .overview-toggle[aria-expanded="true"] .toggle-icon{ transform:rotate(45deg); }
+  .overview-group-content[hidden],.material-content[hidden],.price-content[hidden],.capital-content[hidden]{ display:none; }
+  .overview-block{
+    padding:18px 28px 20px;
+    border-radius:0;
+  }
+  .overview-block.ev{ background:#f0f2f4; }
+  .overview-block.storage{ background:#e5f2fd; }
+  .overview-block.consumer{ background:#f0f2f4; }
+  .overview-heading{
+    margin:0 0 12px;
+    color:#0874bd;
+    font-size:clamp(20px,2vw,28px);
+    line-height:1.45;
+  }
+  .overview-list{
+    margin:0;
+    padding-left:27px;
+    color:#161616;
+    font-size:18px;
+    line-height:1.85;
+  }
+  .overview-list li{ padding-left:4px; margin:4px 0; }
+  .overview-list strong{ font-weight:800; }
+  .overview-list .em-red{ color:#e53935; font-weight:700; }
+  .material-overview{
+    padding-top:26px;
+  }
+  .capital-overview{ padding-top:26px; }
+  .capital-content{
+    padding:18px 22px 0;
+    background:#fff;
+  }
+  .capital-item{ margin-bottom:18px; }
+  .capital-item h3{
+    margin:0 0 8px;
+    color:#0874bd;
+    font-size:clamp(20px,2vw,27px);
+    line-height:1.4;
+  }
+  .capital-item ul{
+    margin:0;
+    padding-left:28px;
+    color:#161616;
+    font-size:18px;
+    line-height:1.9;
+  }
+  .capital-conclusion{
+    margin:22px -22px 0;
+    padding:18px 22px;
+    color:#fff;
+    background:#0785e5;
+    font-size:clamp(19px,1.8vw,26px);
+    font-weight:800;
+    line-height:1.7;
+  }
+  .price-overview{ padding-top:26px; }
+  .price-content{
+    padding:18px 22px 0;
+    background:#fff;
+  }
+  .price-lead{
+    margin:0 0 22px;
+    color:#0874bd;
+    font-size:clamp(20px,2vw,28px);
+    font-weight:800;
+    line-height:1.65;
+  }
+  .price-list{
+    display:grid;
+    gap:14px;
+    margin:0;
+    padding-left:28px;
+    color:#161616;
+    font-size:18px;
+    line-height:1.85;
+  }
+  .price-list li{ padding-left:4px; }
+  .price-label{ color:#0874bd; font-weight:800; }
+  .price-red{ color:#f11; }
+  .material-title{
+    margin:0 0 18px;
+    color:#0082e1;
+    font-size:clamp(28px,3vw,42px);
+    line-height:1.2;
+  }
+  .material-grid{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:14px;
+  }
+  .material-card{
+    min-width:0;
+    padding:16px 18px 14px;
+    background:#f0f2f4;
+    display:flex;
+    flex-direction:column;
+  }
+  .material-card.positive,.material-card.electrolyte{ background:#e5f2fd; }
+  .material-card h3{
+    margin:0 0 10px;
+    color:#5d6b73;
+    font-size:clamp(20px,2vw,28px);
+    line-height:1.4;
+  }
+  .material-card.positive h3,.material-card.electrolyte h3{ color:#0874bd; }
+  .material-list{
+    margin:0;
+    padding-left:24px;
+    color:#161616;
+    font-size:17px;
+    line-height:1.8;
+  }
+  .material-list li{ padding-left:3px; margin:4px 0; }
+  .material-list .em-red{ color:#e53935; font-weight:700; }
+  .material-chart{
+    width:100%;
+    height:190px;
+    margin:14px 0 0;
+  }
+  .material-card .material-chart{ margin-top:auto; padding-top:14px; }
+  @media (max-width:768px){
+    .material-overview{ padding-top:22px; }
+    .material-grid{ grid-template-columns:1fr; }
+    .material-list{ font-size:16px; line-height:1.75; }
+    .material-chart{ height:180px; }
+    .capital-overview{ padding-top:22px; }
+    .capital-content{ padding:14px 16px 0; }
+    .capital-item ul{ padding-left:22px; font-size:16px; line-height:1.75; }
+    .capital-conclusion{ margin:18px -16px 0; padding:15px 16px; }
+    .price-overview{ padding-top:22px; }
+    .price-content{ padding:14px 16px 0; }
+    .price-list{ padding-left:22px; font-size:16px; line-height:1.75; }
+  }
+  @media (max-width:768px){
+    .overview-block{ padding:14px 16px 16px; }
+    .overview-list{ padding-left:22px; font-size:16px; line-height:1.75; }
+    .overview-list li{ padding-left:2px; }
+  }
 
   /* 建设中占位卡片 */
   .placeholder{
@@ -987,6 +1165,7 @@
     <span class="chain-entry" data-panel="panel-chain">🔬 产业链全景</span>
   </div>
   <div class="tags">
+    <span class="tag overview-tag" data-panel="panel-overview" aria-label="页面概览">概览</span>
     <span class="tag" data-panel="panel-1"><span class="num">1</span>乘用车市场</span>
     <span class="tag active" data-panel="panel-2"><span class="num">2</span>商用车市场</span>
     <span class="tag" data-panel="panel-3"><span class="num">3</span>电池（动力、储能、消费）</span>
@@ -998,6 +1177,141 @@
 </header>
 
 <main>
+  <!-- 概览摘要 -->
+  <section class="panel overview-panel" id="panel-overview">
+    <section class="overview-group">
+      <button class="overview-toggle overview-title" type="button" aria-expanded="false" aria-controls="overview-summary-content">
+        <span>一、锂电池及下游应用洞察摘要</span><span class="toggle-icon" aria-hidden="true">＋</span>
+      </button>
+      <div class="overview-group-content" id="overview-summary-content" hidden>
+    <section class="overview-block ev">
+      <h3 class="overview-heading">EV市场：全球新能源汽车呈现明显区域分化，中国短期结构性承压，欧洲保持高增速，美国暂时下行，商用车与电动重卡开辟新增量</h3>
+      <ul class="overview-list">
+        <li><strong>26年上半年国内新能源乘用车内需走弱、商用车高增，车企格局分化明显，新能源汽车出口迎来爆发，成为行业核心增长引擎：</strong>26H1国内新能源乘用车内销459.4万辆（<span class="em-red">同比-16.8%</span>），购置税透支造成内需走弱；商用车49.6万辆（<span class="em-red">同比+40.2%</span>）形成结构性亮点。车企格局分化，前十市占率87.4%；新能源乘用车出口230.2万辆（<span class="em-red">同比+130%</span>），渗透率51.9%，出口对冲内需压力。电动重卡持续放量，全年预计销量35.6万辆，对应电池装机预期<span class="em-red">153.4GWh</span>。</li>
+        <li><strong>欧洲电车稳健增长，多国补贴政策持续托底需求：</strong>26年1-5月欧洲新能源汽车乘用车注册量198.6万辆，<span class="em-red">同比+28%</span>，电动化渗透率34.1%；德、英、法为核心市场，北欧渗透率趋于饱和、增速放缓，意大利等南欧国家增速高达89%；政策端德、法、西班牙持续补贴平价纯电，挪威、荷兰逐步退出现金补贴，区域政策分化持续影响各国需求节奏。</li>
+        <li><strong>美国电车暂时看不到回暖迹象：</strong>26年1-5月美国新能源汽车销量43.2万辆，同比-33.5%，电动化渗透率6.6%，税收政策到期、车价偏高压制需求。</li>
+        <li>东南亚、印度新兴新能源汽车市场维持稳健增长，电动化渗透率持续提升，中国品牌主导区域新能源增量，形成“燃油日系把持、电动国产抢占”的错位竞争格局。</li>
+        <li><strong>全球动力电池装机同比增速放缓：</strong>26年1-5月全球装机469.2GWh，<span class="em-red">同比+18%</span>；装机量分别为中国260.0GWh、欧洲108.7GWh、美国34.3GWh，<span class="em-red">同比中国+12%、欧洲+27%、美国-28%</span>；铁锂装机占比55%持续高于三元。行业CR5=73%，宁德时代+比亚迪合计占据54%份额；多数中资电池企业实现高增，日韩企业普遍承压下滑。</li>
+      </ul>
+    </section>
+
+    <section class="overview-block storage">
+      <h3 class="overview-heading">储能市场：赛道维持高景气，产能集中投放、需求高速增长，大储为需求基本盘，行业集中度持续下行，大容量电芯渗透节奏慢于前期预期。</h3>
+      <ul class="overview-list">
+        <li><strong>需求高增、结构性紧缺：</strong>26H1储能电芯出货464.1GWh，同比+93.2%；大储占比89%为核心支柱，小储增速弹性更高；上半年储能产能集中释放，主流314Ah电芯维持结构性紧缺。</li>
+        <li><strong>规格演进节奏放缓：</strong>314Ah当前主流，500Ah+大容量电芯为长期方向，26年渗透率预期仅15%，落地进度不及市场前期预期，各场景电芯规格呈分化格局。</li>
+        <li><strong>竞争持续趋于分散：</strong>CR10占比83%持续回落，宁德时代稳居龙头，海辰、亿纬、比亚迪构成第二梯队；大量新玩家入局，中小厂商增量提升，中低端竞争加剧。</li>
+      </ul>
+    </section>
+
+    <section class="overview-block consumer">
+      <h3 class="overview-heading">消费市场：消费电池整体增长平缓，存储芯片涨价压制传统手机需求，两轮车、电动工具成为增量；行业格局分散，企业盈利持续承压。</h3>
+      <ul class="overview-list">
+        <li>26H1消费电芯出货90.7GWh，显著弱于动力、储能赛道；电动两轮车、电动工具形成增量，但手机等传统消费需求疲软，整体难以拉动高增长。ATL稳居龙头，CR5仅44.5%；下游议价强势，成本压力难以传导，行业盈利承压。</li>
+      </ul>
+    </section>
+
+    </div>
+    </section>
+
+    <section class="material-overview">
+      <button class="overview-toggle material-title" type="button" aria-expanded="false" aria-controls="material-summary-content">
+        <span>二、锂电四大主材洞察摘要</span><span class="toggle-icon" aria-hidden="true">＋</span>
+      </button>
+      <div class="material-content" id="material-summary-content" hidden>
+      <div class="material-grid">
+        <article class="material-card positive">
+          <h3>正极：三元超预期铁锂高增速，磷酸锰铁锂及钴酸锂不及预期</h3>
+          <ul class="material-list">
+            <li><strong>三元&amp;前驱体：</strong>26H1三元<span class="em-red">超预期增长</span>，国内高端电车及欧洲中镍车型上量，部分3C数码三元替代拉动需求；<span class="em-red">6系继续占据主流</span>。预计26H2三元材料企业出货量级或维持向上趋势。</li>
+            <li><strong>磷酸铁锂&amp;磷酸铁：</strong>26H1铁锂产量同比<span class="em-red">增59%</span>，预计26H2储能拉动产销继续走高；行业存量竞争，<span class="em-red">裕鼎稳居龙头</span>；行业产能640万吨，产能利用率升至<span class="em-red">70%</span>。磷铁原料偏紧推高加工费，行业产值同比增50%；四钛仍供不应求，五代有望实现更多批量供应。</li>
+            <li><strong>钴酸锂&amp;四钴：</strong>26H1钴、钴酸锂<span class="em-red">供需双弱</span>，同比下滑；3C需求疲软、前置备货透支、低钴三元分流叠加原料亏损压制排产；钴酸锂<span class="em-red">高压趋势</span>明显；26H2<span class="em-red">预期不乐观</span>。</li>
+          </ul>
+          <div class="material-chart" id="material-chart-positive" aria-label="正极产量及预测"></div>
+        </article>
+
+        <article class="material-card negative">
+          <h3>负极：出口+储能拉动需求高增下半年价格预期上行</h3>
+          <ul class="material-list">
+            <li><strong>供需格局：</strong>26H1负极产量198万吨，<span class="em-red">同比+52%</span>，人造石墨占比93%，行业持续去库；石墨化产能受限致有效供给紧缺，市场份额向贝特瑞、杉杉等一体化头部集中，中小企业出清；预计26全年出货430万吨，同比+38%。</li>
+            <li><strong>价格与后市：</strong>针状焦、石墨化加工费抬升成本，<span class="em-red">Q2完成涨价传导</span>；下半年供给难快速放量，成本支撑价格延续上行，一体化龙头盈利优势持续扩大。</li>
+          </ul>
+          <div class="material-chart" id="material-chart-negative" aria-label="负极产量及预测"></div>
+        </article>
+
+        <article class="material-card separator">
+          <h3>隔膜：持续增长湿法隔膜预计占比超90%竞争格局稳定</h3>
+          <ul class="material-list">
+            <li><strong>产销与产品结构：</strong>26H1中国基膜218亿平，同比<span class="em-red">+52%</span>，全年预计455亿平；湿法隔膜受益储能需求高增，占比达88%，年末有望超90%，干法份额持续收缩，行业开工率稳步抬升。</li>
+            <li><strong>格局与远期趋势：</strong>行业集中度稳定，CR5达80%，恩捷稳居龙头；27-28年头部集中扩产，叠加储能、海外动力需求释放，预计27H2行业竞争格局或将重塑。</li>
+          </ul>
+          <div class="material-chart" id="material-chart-separator" aria-label="隔膜产量及预测"></div>
+        </article>
+
+        <article class="material-card electrolyte">
+          <h3>电解液：终端带动其高增长龙头集中二梯队内卷加剧</h3>
+          <ul class="material-list">
+            <li><strong>电解液上半年保持高增：</strong>26H1全球电解液148万吨，同比<span class="em-red">+47%</span>，国内141万吨，同比+50%。</li>
+            <li><strong>竞争格局结构性分化：</strong>行业CR3约为55%，集中度小幅松动，龙头红利仍存但第二梯队内卷加剧：天赐31%稳居绝对龙头，新宙邦、比亚迪合计24%形成第二梯队。</li>
+          </ul>
+          <div class="material-chart" id="material-chart-electrolyte" aria-label="电解液产量及预测"></div>
+        </article>
+      </div>
+      </div>
+    </section>
+
+    <section class="price-overview">
+      <button class="overview-toggle material-title" type="button" aria-expanded="false" aria-controls="price-summary-content">
+        <span>三、锂电材料及电芯价格摘要</span><span class="toggle-icon" aria-hidden="true">＋</span>
+      </button>
+      <div class="price-content" id="price-summary-content" hidden>
+        <p class="price-lead">价格变动：相比年初，截至7月底，主要锂盐、三元正极、磷酸铁锂正极价格涨幅较大，钴酸锂正极价格下探；负极、隔膜材料价格稳定，但上游部分原材料涨势明显；电解液价格相对稳定，部分溶剂、锂盐价格出现回调。锂电电芯价格涨幅较大。</p>
+        <ul class="price-list">
+          <li><span class="price-label">锂盐方面，</span>碳酸锂涨幅<span class="price-red">25%</span>、氢氧化锂涨幅<span class="price-red">24%</span>；</li>
+          <li><span class="price-label">正极方面，</span>三元正极端，原料硫酸钴、硫酸镍原料波动较平稳，三元前驱体价格稳定，动力型三元正极5、6、8系分别涨价<span class="price-red">17%、13%、22%</span>，原因系需求超预期增长。磷酸铁锂端，因需求拉动，磷酸铁前驱体、磷酸铁锂正极分别涨价<span class="price-red">34%、20%</span>。钴酸锂端，因需求不足，四氧化三钴前驱体、钴酸锂正极分别降价<span class="price-red">10%和4%</span>；</li>
+          <li><span class="price-label">负极方面，</span>石墨化、天然负极、人造负极价格稳定；上游原材料1#石油焦价格3月因霍尔木兹海峡冲突导致价格短暂冲高，现局势相对缓解已回落至年初水平；针状焦生焦出厂价、熟焦挂牌价相对年初分别涨价<span class="price-red">13%、16%</span>，涨价系市场对高端负极需求增长；石墨化价格因下游产能紧缺微涨。</li>
+          <li><span class="price-label">隔膜方面，</span>隔膜材料湿法隔膜有5%左右的微幅增长、干法隔膜无增长，涂覆仅增长1%；上游原材料受到美伊战争石油价格上涨影响波动较大，PP、PE、二氯甲烷涨幅分别达到<span class="price-red">48%、30%、31%</span>；</li>
+          <li><span class="price-label">电解液方面，</span>因年初涨幅较大，电解液部分溶剂和锂盐价格有所回调，六氟磷酸锂、DMC分别下降<span class="price-red">38%、23%</span>，电解液跌幅在2%~4%之间，EC跌幅<span class="price-red">19%</span>；</li>
+          <li><span class="price-label">功能材料方面，</span>PVDF涨价<span class="price-red">5%</span>，铜箔加工费及铝塑膜价格基本不变；</li>
+          <li><span class="price-label">电芯方面，</span>方形电芯涨价幅度<span class="price-red">7%~13%</span>，18650圆柱电芯涨价幅度<span class="price-red">15%~32%</span>，软包电芯涨价约<span class="price-red">19%</span>。</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="capital-overview">
+      <button class="overview-toggle material-title" type="button" aria-expanded="false" aria-controls="capital-summary-content">
+        <span>四、锂电/钠电产业链公司资本摘要</span><span class="toggle-icon" aria-hidden="true">＋</span>
+      </button>
+      <div class="capital-content" id="capital-summary-content" hidden>
+        <section class="capital-item">
+          <h3>IPO进程结构性分化</h3>
+          <ul>
+            <li>产业链上市动作明显冷热不均：铜箔、储能、钠电相关企业积极筹备港股、美股IPO；与此同时部分材料企业主动终止IPO申报，融资环境收紧，中小厂商独立上市难度提升。多家企业处于港股递表、IPO暂缓状态，资本对传统过剩材料赛道趋于谨慎。</li>
+          </ul>
+        </section>
+        <section class="capital-item">
+          <h3>龙头分拆提速，细分赛道独立资本化加速</h3>
+          <ul>
+            <li>金川、璞泰来等头部企业推进子公司分拆上市，搭建多元资本平台；固态设备、锂盐、添加剂、硬碳等细分环节涌现专业化独立标的，精细化工配套企业资本化提速。</li>
+          </ul>
+        </section>
+        <section class="capital-item">
+          <h3>赛道估值预期明显割裂</h3>
+          <ul>
+            <li>储能、出口导向动力电池链更受资本青睐；钠电、固态电池作为前沿赛道一级市场持续投入，但多数企业尚未实现盈利、暂未上市。</li>
+          </ul>
+        </section>
+        <section class="capital-item">
+          <h3>上市渠道多元化探索</h3>
+          <ul>
+            <li>企业不再局限A股市场，大量企业冲刺港股，拓宽融资渠道，分散单一市场风险。</li>
+          </ul>
+        </section>
+        <div class="capital-conclusion">2026年上半年产业链资本行为呈现明显分化：储能、钠电、细分锂电辅材资本化热度较高，多家企业推进港股、美股IPO；传统过剩材料赛道IPO申报遇冷，部分企业终止上市计划。固态设备、LiFSI、硬碳等新兴细分环节独立标的持续增多；钠电产业链企业大量涌现，但多数仍处于未上市阶段。</div>
+      </div>
+    </section>
+  </section>
+
   <!-- 板块1：乘用车市场 -->
   <section class="panel" id="panel-1">
     <div class="sec-title">一、全球乘用车市场</div>
@@ -3134,6 +3448,163 @@ window.addEventListener('resize', () => {
   Object.values(cvGlobalCharts).forEach(c=>{ try{ c.resize(); }catch(e){} });
   // 中国电动重卡图也 resize
   Object.values(cvHeavyCharts).forEach(c=>{ try{ c.resize(); }catch(e){} });
+  // 概览中的四大主材图表也 resize
+  Object.values(materialOverviewCharts).forEach(c=>{ try{ c.resize(); }catch(e){} });
+});
+
+// ===== 概览：锂电四大主材 ECharts =====
+const materialOverviewCharts = {};
+const materialDecal = {
+  symbol:'rect', symbolSize:1, color:'#147dcc', rotation:-Math.PI / 4,
+  dashArrayX:[1,0], dashArrayY:[2,2]
+};
+function renderMaterialOverviewChart(id, cfg){
+  const el = document.getElementById(id);
+  if(!el) return;
+  const chart = echarts.init(el);
+  const actual = cfg.actual || [];
+  const forecast = cfg.forecast || [];
+  const total = cfg.total || actual.map((v,i)=>(v || 0) + (forecast[i] || 0));
+  const stackSeries = cfg.stacks || [
+    {name:'26H1/实际', data:actual, color:'#0082e1'},
+    {name:'26H2/预测', data:forecast, color:'#a8d8fb', decal:materialDecal}
+  ];
+  const series = stackSeries.map(item => ({
+    name:item.name,
+    type:'bar',
+    stack:'total',
+    barMaxWidth:48,
+    itemStyle:item.decal ? {color:item.color, decal:item.decal} : {color:item.color},
+    data:item.data.map(raw => {
+      const value = raw && typeof raw === 'object' ? raw.value : raw;
+      if(value == null) return null;
+      const itemStyle = raw && typeof raw === 'object' && raw.itemStyle
+        ? raw.itemStyle
+        : (item.decal ? {color:item.color, decal:item.decal} : {color:item.color});
+      return {value, itemStyle};
+    }),
+    label:{show:true, position:'inside', color:'#111', fontSize:13, formatter:p=>p.value ? p.value : ''},
+    emphasis:{focus:'series'}
+  }));
+  series.push({
+    name:'合计', type:'bar', data:total, barMaxWidth:48, barGap:'-100%',
+    silent:true, itemStyle:{color:'transparent'},
+    label:{
+      show:true, position:'top', color:'#111', fontSize:14, fontWeight:700,
+      formatter:p=>{
+        const yoy = cfg.yoy && cfg.yoy[p.dataIndex];
+        if(!yoy) return `{value|${p.value}}`;
+        const tone = yoy.includes('-') ? 'down' : 'up';
+        return '{value|' + p.value + '}\n{' + tone + '|' + yoy + '}';
+      },
+      rich:{
+        value:{color:'#111',fontSize:14,fontWeight:700,lineHeight:20},
+        up:{color:'#e53935',fontSize:13,fontWeight:700,lineHeight:18},
+        down:{color:'#00c974',fontSize:13,fontWeight:700,lineHeight:18}
+      }
+    }
+  });
+  // 仅把同比文字锚定在堆叠柱顶端，不显示合计数字。
+  series.pop();
+  const topSeries = series[series.length - 1];
+  topSeries.markPoint = {
+    symbol:'circle', symbolSize:1, silent:true, itemStyle:{color:'transparent'},
+    data:total.map((value,index)=>{
+      const yoy = (cfg.yoy && cfg.yoy[index]) || '';
+      if(!yoy) return null;
+      return {
+        coord:[index,value], value, yoy,
+        label:{
+          show:true, position:'top', distance:5,
+          formatter:yoy,
+          color:yoy.includes('-') ? '#00c974' : '#e53935',
+          fontSize:13, fontWeight:700
+        }
+      };
+    }).filter(Boolean),
+    label:{
+      show:false, position:'top', distance:4, z:20,
+      formatter:p=>{
+        const yoy = p.data.yoy;
+        if(!yoy) return `{value|${p.value}}`;
+        const tone = yoy.includes('-') ? 'down' : 'up';
+        return '{value|' + p.value + '}\n{' + tone + '|' + yoy + '}';
+      },
+      rich:{
+        value:{color:'#111',fontSize:14,fontWeight:700,lineHeight:20},
+        up:{color:'#e53935',fontSize:13,fontWeight:700,lineHeight:18},
+        down:{color:'#00c974',fontSize:13,fontWeight:700,lineHeight:18}
+      }
+    }
+  };
+  chart.setOption({
+    animation:false,
+    grid:{left:8,right:8,top:46,bottom:28,containLabel:true},
+    tooltip:{
+      trigger:'axis', axisPointer:{type:'shadow'},
+      formatter:params=>{
+        const visible = params.filter(p=>p.value != null && Number(p.value) !== 0);
+        const title = visible[0] ? visible[0].axisValue : '';
+        const rows = visible.map(p=>{
+          const seriesCfg = stackSeries[p.seriesIndex] || {};
+          const raw = seriesCfg.data && seriesCfg.data[p.dataIndex];
+          const rawStyle = raw && typeof raw === 'object' ? (raw.itemStyle || {}) : {};
+          const color = rawStyle.color || seriesCfg.color || '#0082e1';
+          const hasDecal = Boolean(rawStyle.decal || seriesCfg.decal);
+          const swatch = hasDecal
+            ? 'background:repeating-linear-gradient(135deg,#147dcc 0 2px,#a8d8fb 2px 5px);'
+            : `background:${color};`;
+          return `<div style="display:flex;align-items:center;gap:8px;margin-top:5px"><span style="width:11px;height:11px;border-radius:2px;${swatch}"></span><span style="flex:1">${p.seriesName}</span><strong>${p.value}</strong></div>`;
+        }).join('');
+        return `<div style="min-width:150px"><strong>${title}</strong>${rows}</div>`;
+      }
+    },
+    legend:cfg.legend === false ? {show:false} : {top:0, left:'center', itemWidth:12, itemHeight:8, textStyle:{fontSize:12,color:'#51616d'}},
+    xAxis:{type:'category', data:cfg.categories, axisLine:{lineStyle:{color:'#b9c9dd'}}, axisTick:{show:false}, axisLabel:{color:'#111',fontSize:13,fontWeight:700}},
+    yAxis:{type:'value', show:false, max:Math.max(...total) * 1.22},
+    series
+  });
+  materialOverviewCharts[id] = chart;
+}
+renderMaterialOverviewChart('material-chart-positive', {
+  categories:['全球三元','全球铁锂','国内钴酸锂'],
+  actual:[57,271,5], forecast:[60,352,5], total:[117,623,10],
+  yoy:['预计26同比+12%','预计26同比+57%','预计26同比-14%']
+});
+renderMaterialOverviewChart('material-chart-negative', {
+  categories:['24A','25A','26E'],
+  actual:[217,312,198], forecast:[0,0,232], total:[217,312,430],
+  yoy:['','','预计26同比+38%']
+});
+renderMaterialOverviewChart('material-chart-separator', {
+  categories:['24A','25A','26H1','26H2'],
+  total:[222,345,218,237],
+  yoy:['','','','预计26同比+32%'],
+  stacks:[
+    {name:'湿法', color:'#0082e1', data:[173,284,191,{value:219,itemStyle:{color:'#a8d8fb',decal:materialDecal}}]},
+    {name:'干法', color:'#00c974', data:[49,61,27,{value:18,itemStyle:{color:'#b6efd8',decal:materialDecal}}]}
+  ]
+});
+renderMaterialOverviewChart('material-chart-electrolyte', {
+  categories:['24A','25A','26E'],
+  actual:[165,237,148], forecast:[0,0,192], total:[165,237,340],
+  yoy:['','','预计26同比+43%']
+});
+
+// ===== 概览摘要展开/收起 =====
+document.querySelectorAll('.overview-toggle').forEach(toggle => {
+  toggle.addEventListener('click', () => {
+    const expanded = toggle.getAttribute('aria-expanded') === 'true';
+    const content = document.getElementById(toggle.getAttribute('aria-controls'));
+    const nextExpanded = !expanded;
+    toggle.setAttribute('aria-expanded', String(nextExpanded));
+    if(content) content.hidden = !nextExpanded;
+    if(nextExpanded && content && content.id === 'material-summary-content'){
+      setTimeout(() => {
+        Object.values(materialOverviewCharts).forEach(c=>{ try{ c.resize(); }catch(e){} });
+      }, 0);
+    }
+  });
 });
 
 // ===== tag 板块切换 =====
@@ -3142,6 +3613,7 @@ window.addEventListener('resize', () => {
 document.querySelectorAll('header.app .tag').forEach(tag => {
   tag.addEventListener('click', () => {
     const target = tag.getAttribute('data-panel');
+    if(!target) return;
     try{ localStorage.setItem('activePanel', target); }catch(e){}
     // 切换 tag 高亮
     document.querySelectorAll('header.app .tag').forEach(t => t.classList.remove('active'));
@@ -3179,6 +3651,9 @@ document.querySelectorAll('header.app .tag').forEach(tag => {
       // 切到电芯&材料价格 panel 时，重绘价格图
       if(target === 'panel-5' && priceCharts.length){
         priceCharts.forEach(c=>{ try{ c.resize(); }catch(e){} });
+      }
+      if(target === 'panel-overview'){
+        Object.values(materialOverviewCharts).forEach(c=>{ try{ c.resize(); }catch(e){} });
       }
     }, 0);
   });
