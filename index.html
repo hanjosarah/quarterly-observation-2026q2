@@ -566,6 +566,27 @@
     font-weight:800;
     line-height:1.5;
   }
+  .tax-key{
+    display:flex;
+    justify-content:flex-end;
+    flex-wrap:wrap;
+    gap:10px;
+    margin:0 0 14px;
+  }
+  .tax-key span{
+    display:inline-flex;
+    align-items:center;
+    min-height:34px;
+    padding:5px 14px;
+    border-radius:18px;
+    color:#fff;
+    font-size:16px;
+    font-weight:800;
+    box-shadow:0 3px 7px rgba(20,38,62,.2);
+  }
+  .tax-key .battery{ background:#0785e5; }
+  .tax-key .export{ background:#00c974; }
+  .tax-key .vehicle{ background:#7d8c93; }
   .tax-timeline{
     display:grid;
     grid-template-columns:repeat(4,minmax(0,1fr));
@@ -1377,6 +1398,11 @@
       </button>
       <div class="tax-content" id="tax-summary-content" hidden>
         <p class="tax-lead">三大税收政策：油电同权大幕正式拉开，加速行业竞争淘汰</p>
+        <div class="tax-key" aria-label="税收政策底色说明">
+          <span class="battery">电池消费税</span>
+          <span class="export">出口退税</span>
+          <span class="vehicle">车船税</span>
+        </div>
         <div class="tax-timeline" aria-label="电池行业税收政策时间轴">
           <div class="tax-event green"><span class="tax-date">26年4月1日</span>电池产品增值税出口退税率调至<strong>6%</strong></div>
           <div class="tax-event"><span class="tax-date">26年9月1日</span>锂离子蓄电池按<strong>2%</strong>税率征收消费税</div>
